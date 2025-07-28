@@ -52,7 +52,7 @@ class _My_HomeState extends State<My_Home> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.only(top: 12.0, left: 12, right: 12),
+          padding: const EdgeInsets.only(top: 12.0, left: 12, right: 12,bottom: 18),
           child: Column(
             spacing: 12,
             children: [
@@ -142,6 +142,9 @@ class _My_HomeState extends State<My_Home> {
               //Live Market Prices 
               Live_Market(),
               //Farming tipes Container
+               Farming_Tipes(),
+              //Income Boost Container
+              Income_Boost(),
             ],
           ),
         ),
@@ -368,7 +371,7 @@ Widget Vegies_detailes(
 Widget Live_Market()
 {
   return Container(
-    width: 350,height: 60,
+    width: 400,height: 80,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(12),
@@ -376,21 +379,24 @@ Widget Live_Market()
     child: Column(
       spacing: 12,
       children: [
-        Row(
-          spacing: 8,
-          children: [
-            SizedBox(width: 10,),
-             Text('Live Market Prices',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),),
-             SizedBox(width: 80,),
-             Container(
-              width: 10,height: 10,
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(50)
-              ),
-             ),
-             Text('Live',style: TextStyle(color: Colors.black54),)
-          ],
+        Padding(
+          padding: const EdgeInsets.only(top:12.0),
+          child: Row(
+            spacing: 8,
+            children: [
+              SizedBox(width: 10,),
+               Text('Live Market Prices',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),),
+               SizedBox(width: 120,),
+               Container(
+                width: 10,height: 10,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(50)
+                ),
+               ),
+               Text('Live',style: TextStyle(color: Colors.black54),)
+            ],
+          ),
         ),
        SingleChildScrollView(
   scrollDirection: Axis.horizontal,
@@ -440,10 +446,10 @@ Widget Live_Market()
 Widget Farming_Tipes()
 {
   return Container(
-    width: 400, height: 300,
+    width: 400, height: 270,
     decoration: BoxDecoration(
      color: Colors.white,
-     borderRadius: BorderRadius.circular(8),
+     borderRadius: BorderRadius.circular(12),
     ),
     child: Padding(
       padding: const EdgeInsets.all(12.0),
@@ -453,42 +459,116 @@ Widget Farming_Tipes()
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-             Text('Today\'s Framing Tips',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+             Text('Today\'s Framing Tips',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),)
             ],
           ),
           Container(
             width: 350,height: 100,
             decoration: BoxDecoration(
-              color: Colors.green[100],
+              color: Colors.green[50],
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 50,height: 12,
+                Padding(
+                  padding: const EdgeInsets.only(top: 12.0,left: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,height: 40,
                       decoration: BoxDecoration(
-                        color: Colors.green[200],
-                        borderRadius: BorderRadius.circular(50)
+                          color: Colors.green[200],
+                          borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: Icon(Icons.eco_outlined,color: Colors.green,size: 30,),
                       ),
-                      child: Icon(Icons.eco_outlined,color: Colors.green,size: 30,),
-                    ),
-                    SizedBox(width: 6,),
-                    Text('Optimal Watering Time',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
-                  ],
+                      SizedBox(width: 6,),
+                      Text('Optimal Watering Time',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),)
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Text('Water your crops early morning(5-7 AM) to '),
-                    Text('reduce water loss through evaporation.')
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 50.0),
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Water your crops early morning(5-7 AM) to '),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 26.0),
+                        child: Text('reduce water loss through evaporation.'),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            width: 350,height: 100,
+            decoration: BoxDecoration(
+              color: Colors.blue[50],
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 12.0,left: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.blue[100],
+                          borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: Icon(Icons.bug_report_outlined,color: Colors.blue,size: 30,),
+                      ),
+                      SizedBox(width: 6,),
+                      Text('Pest Control Alert',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),)
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 0.0),
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Check for aphids on tomato plants.'),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 27.0),
+                        child: Text('Use neem oil spray as natural pesticide.'),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
           )
         ],
       ),
+    ),
+  );
+}
+//Income Boost container
+Widget Income_Boost()
+{
+  return Container(
+    width: 400,height: 100,
+    decoration: BoxDecoration(
+      gradient: LinearGradient(colors: [Colors.green[500]!,Colors.green[300]!]),
+      borderRadius: BorderRadius.circular(18)
+    ),
+    child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 16.0,left: 12),
+          child: Row(
+            children: [
+              Text('Income Boost',style: TextStyle(color: Colors.white,fontSize: 20),)
+            ],
+          ),
+        )
+      ],
     ),
   );
 }
