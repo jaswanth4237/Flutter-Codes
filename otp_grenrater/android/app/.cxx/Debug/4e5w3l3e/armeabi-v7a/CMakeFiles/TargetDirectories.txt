@@ -1,2 +1,0 @@
-D:/Flutter Codes/otp_grenrater/android/app/.cxx/Debug/4e5w3l3e/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/Flutter Codes/otp_grenrater/android/app/.cxx/Debug/4e5w3l3e/armeabi-v7a/CMakeFiles/rebuild_cache.dir
