@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/widgets/Container_lst.dart';
+import 'package:smart_agri_connect/widgets/Container_rect.dart';
+import 'package:smart_agri_connect/widgets/container_sqr.dart';
 
 class AdvisePage extends StatefulWidget {
   const AdvisePage({super.key});
@@ -98,30 +101,33 @@ class _AdvisePageState extends State<AdvisePage> {
                   Row(
                     spacing: 12,
                     children: [
-                      conS(
-                        Color(0xFF3071ef),
-                        Icons.wb_sunny_outlined,
-                        Colors.white,
-                        "Weather\n    Alert",
-                        "Light rain expected in next 48 hours. Plan harvesting accordingly.",
+                      ContainerSqr(
+                        icn: Icons.wb_sunny_outlined,
+                        c1: Color(0xFF3071ef),
+                        c2: Colors.white,
+                        t1: "Weather\n    Alert",
+                        t2:
+                            "Light rain expected in next 48 hours. Plan harvesting accordingly.",
                       ),
-                      conS(
-                        Color(0xFF1cb855),
-                        Icons.eco,
-                        Colors.white,
-                        "Crop\n   Health",
-                        "Ideal conditions for wheat growth. Monitor moisture levels.",
+                      ContainerSqr(
+                        icn: Icons.eco,
+                        c1: Color(0xFF1cb855),
+                        c2: Colors.white,
+                        t1: "Crop\n   Health",
+                        t2:
+                            "Ideal conditions for wheat growth. Monitor moisture levels.",
                       ),
                     ],
                   ),
-                  conR(
-                    Color(0xFFfff6ed),
-                    Color(0xFFffecd0),
-                    Color(0xFFb8734c),
-                    Icons.calendar_month,
-                    'Seasonal Advisory',
-                    'Best time to sow wheat crops.\nPrepare your fields within next 2\nweeks.',
-                    Row(
+                  ContainerRect(
+                    C: Color(0xFFfff6ed),
+                    c1: Color(0xFFffecd0),
+                    c2: Color(0xFFb8734c),
+                    icn: Icons.calendar_month,
+                    t1: 'Seasonal Advisory',
+                    t2:
+                        'Best time to sow wheat crops.\nPrepare your fields within next 2\nweeks.',
+                    wdgt: Row(
                       spacing: 8,
                       children: [
                         Container(
@@ -148,14 +154,15 @@ class _AdvisePageState extends State<AdvisePage> {
                       ],
                     ),
                   ),
-                  conR(
-                    Color(0xFFeff6ff),
-                    Color(0xFFdaeaf7),
-                    Color(0xFF5870b0),
-                    Icons.water_drop_outlined,
-                    'Irrigation Schedule',
-                    'Maintain 2-3 cm water level for\nbetter crop growth. Next irrigation\ndue in 3 days.',
-                    Row(
+                  ContainerRect(
+                    C: Color(0xFFeff6ff),
+                    c1: Color(0xFFdaeaf7),
+                    c2: Color(0xFF5870b0),
+                    icn: Icons.water_drop_outlined,
+                    t1: 'Irrigation Schedule',
+                    t2:
+                        'Maintain 2-3 cm water level for\nbetter crop growth. Next irrigation\ndue in 3 days.',
+                    wdgt: Row(
                       spacing: 8,
                       children: [
                         SizedBox(
@@ -172,22 +179,20 @@ class _AdvisePageState extends State<AdvisePage> {
                         ),
                         const Text(
                           "65%",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black87,
-                          ),
+                          style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
                     ),
                   ),
-                  conR(
-                    Color(0xFFfef2f2),
-                    Color(0xFFfce2e3),
-                    Color(0xFFa84035),
-                    Icons.bug_report_outlined,
-                    'Pest Alert',
-                    'High risk of aphid infestation in\ntomato crops. Apply recommended\npesticides.',
-                    Text(
+                  ContainerRect(
+                    C: Color(0xFFfef2f2),
+                    c1: Color(0xFFfce2e3),
+                    c2: Color(0xFFa84035),
+                    icn: Icons.bug_report_outlined,
+                    t1: 'Pest Alert',
+                    t2:
+                        'High risk of aphid infestation in\ntomato crops. Apply recommended\npesticides.',
+                    wdgt: Text(
                       'View Prevention Tips →',
                       style: TextStyle(
                         color: Color(0xFFa84035),
@@ -195,14 +200,15 @@ class _AdvisePageState extends State<AdvisePage> {
                       ),
                     ),
                   ),
-                  conR(
-                    Color(0xFFfbf5ff),
-                    Color(0xFFf3e6ff),
-                    Color(0xFF874bbc),
-                    Icons.videocam_outlined,
-                    'Expert Connect',
-                    'Live session with Dr. Sharma on\n"Modern Farming Techniques"\ntoday at 4 PM',
-                    Text(
+                  ContainerRect(
+                    C: Color(0xFFfbf5ff),
+                    c1: Color(0xFFf3e6ff),
+                    c2: Color(0xFF874bbc),
+                    icn: Icons.videocam_outlined,
+                    t1: 'Expert Connect',
+                    t2:
+                        'Live session with Dr. Sharma on\n"Modern Farming Techniques"\ntoday at 4 PM',
+                    wdgt: Text(
                       'Join Seesion →',
                       style: TextStyle(
                         color: Color(0xFF874bbc),
@@ -222,17 +228,17 @@ class _AdvisePageState extends State<AdvisePage> {
                   Row(
                     spacing: 12,
                     children: [
-                      conL(
-                        Icons.camera_alt_outlined,
-                        Color(0xFFe5f8e5),
-                        Colors.green,
-                        "Scan Crop",
+                      ContainerLst(
+                        icn: Icons.camera_alt_outlined,
+                        C: Color(0xFFe5f8e5),
+                        c: Colors.green,
+                        txt: "Scan Crop",
                       ),
-                      conL(
-                        Icons.headset_mic_outlined,
-                        Color(0xFFe5f8e5),
-                        Colors.green,
-                        "Get Support",
+                      ContainerLst(
+                        icn: Icons.headset_mic_outlined,
+                        C: Color(0xFFe5f8e5),
+                        c: Colors.green,
+                        txt: "Get Support",
                       ),
                     ],
                   ),
@@ -240,108 +246,6 @@ class _AdvisePageState extends State<AdvisePage> {
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget conS(Color c1, IconData icn, Color c2, String t1, String t2) {
-    return Container(
-      width: 150,
-      height: 160,
-      decoration: BoxDecoration(
-        color: c1,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          spacing: 12,
-          children: [
-            Row(
-              spacing: 16,
-              children: [
-                Icon(icn, color: c2),
-                Text(
-                  t1,
-                  style: TextStyle(color: c2, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Text(t2, style: TextStyle(color: c2)),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget conR(
-    Color C,
-    Color c1,
-    Color c2,
-    IconData icn,
-    String t1,
-    String t2,
-    Widget w,
-  ) {
-    return Container(
-      width: double.infinity,
-      height: 150,
-      decoration: BoxDecoration(
-        color: C,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          spacing: 12,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(color: c1, shape: BoxShape.circle),
-              child: Icon(icn, size: 28, color: c2),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 4,
-              children: [
-                Text(
-                  t1,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(t2, style: TextStyle(color: Colors.black, fontSize: 14)),
-                w,
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget conL(IconData icn, Color C, Color c, String txt) {
-    return Container(
-      width: 150,
-      height: 50,
-      decoration: BoxDecoration(
-        color: C,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Center(
-        child: Row(
-          spacing: 8,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(icn, color: c),
-            Text(txt, style: TextStyle(color: c)),
-          ],
         ),
       ),
     );

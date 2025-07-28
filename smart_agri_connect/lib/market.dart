@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/widgets/Groceries_lst.dart';
+import 'package:smart_agri_connect/widgets/Market_insts.dart';
 
 class MarketPage extends StatefulWidget {
   const MarketPage({super.key});
@@ -196,29 +198,29 @@ class _MarketPageState extends State<MarketPage> {
                       ),
                     ],
                   ),
-                  conR(
-                    AssetImage("assets/tomato.jpeg"),
-                    'Tomatoes',
-                    'High Demand',
-                    '₹42/kg',
-                    '↑ 5.2%',
-                    Colors.green,
+                  GroceriesLst(
+                    img: AssetImage("assets/tomato.jpeg"),
+                    txt1: 'Tomatoes',
+                    txt2: 'High Demand',
+                    txt3: '₹42/kg',
+                    txt4: '↑ 5.2%',
+                    c: Colors.green,
                   ),
-                  conR(
-                    AssetImage("assets/wheat.jpeg"),
-                    'Wheat',
-                    'Stable Market',
-                    '₹26/kg',
-                    '↓ 2.1%',
-                    Colors.orange,
+                  GroceriesLst(
+                    img: AssetImage("assets/wheat.jpeg"),
+                    txt1: 'Wheat',
+                    txt2: 'Stable Market',
+                    txt3: '₹26/kg',
+                    txt4: '↓ 2.1%',
+                    c: Colors.orange,
                   ),
-                  conR(
-                    AssetImage("assets/rice.jpeg"),
-                    'Rice',
-                    'Moderate demand',
-                    '₹35/kg',
-                    '↑ 1.8%',
-                    Colors.green,
+                  GroceriesLst(
+                    img: AssetImage("assets/rice.jpeg"),
+                    txt1: 'Rice',
+                    txt2: 'Moderate demand',
+                    txt3: '₹35/kg',
+                    txt4: '↑ 1.8%',
+                    c: Colors.green,
                   ),
                   SizedBox(height: 4),
                   Row(
@@ -242,137 +244,27 @@ class _MarketPageState extends State<MarketPage> {
                       ),
                     ],
                   ),
-                  conM(
-                    Color(0xFFeff6ff),
-                    Color(0xFFdeeaff),
-                    Color(0xFF436b8e),
-                    Icons.info_outline_rounded,
-                    "Price Trend Alert",
-                    "Tomato prices expected to rise further\ndue to increased urban demand",
+                  MarketInsts(
+                    c1: Color(0xFFeff6ff),
+                    c2: Color(0xFFdeeaff),
+                    c3: Color(0xFF436b8e),
+                    icn: Icons.info_outline_rounded,
+                    t1: "Price Trend Alert",
+                    t2:
+                        "Tomato prices expected to rise further\ndue to increased urban demand",
                   ),
-                  conM(
-                    Color(0xFFf0fdf4),
-                    Color(0xFFd8fdeb),
-                    Color(0xFF57987a),
-                    Icons.timer_outlined,
-                    "Best Selling Time",
-                    "Optimal selling window for wheat in the\nnext 2 weeks",
+                  MarketInsts(
+                    c1: Color(0xFFf0fdf4),
+                    c2: Color(0xFFd8fdeb),
+                    c3: Color(0xFF57987a),
+                    icn: Icons.timer_outlined,
+                    t1: "Best Selling Time",
+                    t2: "Optimal selling window for wheat in the\nnext 2 weeks",
                   ),
                 ],
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget conR(
-    ImageProvider img,
-    String txt1,
-    String txt2,
-    String txt3,
-    String txt4,
-    Color c,
-  ) {
-    return Container(
-      width: double.infinity,
-      height: 80,
-      decoration: BoxDecoration(
-        color: Color(0xFFf9fafc),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          spacing: 16,
-          children: [
-            CircleAvatar(backgroundImage: img, radius: 24),
-            SizedBox(
-              width: 150,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    txt1,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    txt2,
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  txt3,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(txt4, style: TextStyle(fontSize: 14, color: c)),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget conM(
-    Color c1,
-    Color c2,
-    Color c3,
-    IconData icn,
-    String t1,
-    String t2,
-  ) {
-    return Container(
-      width: double.infinity,
-      height: 90,
-      decoration: BoxDecoration(
-        color: c1,
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          spacing: 16,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 44,
-              height: 44,
-              decoration: BoxDecoration(shape: BoxShape.circle, color: c2),
-              child: Icon(icn, color: c3, size: 28),
-            ),
-            Column(
-              spacing: 4,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  t1,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(t2, style: TextStyle(color: Colors.black, fontSize: 12)),
-              ],
-            ),
-          ],
         ),
       ),
     );
