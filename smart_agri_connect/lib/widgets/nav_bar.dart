@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/My_Home.dart';
+import 'package:smart_agri_connect/advise.dart';
 import 'package:smart_agri_connect/market.dart';
 import 'package:smart_agri_connect/profile_screen.dart';
+import 'package:smart_agri_connect/sell.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -10,14 +13,13 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int currentIndex = 4;
+  int currentIndex = 0;
 
   final List<Widget> screens = [
-    Center(child: Text("Home Screen")),
-    // Center(child: Text("Market Screen")),
+    My_Home(),
     MarketPage(),
-    Center(child: Text("My Crops Screen")),
-    Center(child: Text("Weather Screen")),
+    SalesUi(),
+    AdvisePage(),
     ProfileScreen(),
   ];
 

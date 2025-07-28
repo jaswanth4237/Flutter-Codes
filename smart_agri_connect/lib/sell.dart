@@ -105,7 +105,7 @@ class _SalesUiState extends State<SalesUi> {
                 borderRadius: BorderRadius.circular(30),
               ),
               margin: EdgeInsets.only(right: 16),
-              child: Image.asset('assets/logo.png', fit: BoxFit.contain),
+              child: Image.asset('assets/logo1.png', fit: BoxFit.contain),
             ),
 
             Column(
@@ -182,9 +182,9 @@ class _SalesUiState extends State<SalesUi> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    cropOption('Tomato', 'assets/tomato.png'),
-                    cropOption('Wheat', 'assets/wheat.png'),
-                    cropOption('Paddy', 'assets/paddy.png'),
+                    cropOption('Tomato', 'assets/tomato_sell.png'),
+                    cropOption('Wheat', 'assets/wheat_sell.png'),
+                    cropOption('Paddy', 'assets/paddy_sell.png'),
                   ],
                 ),
                 const SizedBox(height: 24),
@@ -458,21 +458,21 @@ class _SalesUiState extends State<SalesUi> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: 'Market',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Sell'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Advisory'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: 2,
+      //   selectedItemColor: Colors.green,
+      //   unselectedItemColor: Colors.grey,
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.shopping_bag),
+      //       label: 'Market',
+      //     ),
+      //     BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Sell'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Advisory'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+      //   ],
+      // ),
     );
   }
 }
