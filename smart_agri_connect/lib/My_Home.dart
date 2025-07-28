@@ -141,6 +141,7 @@ class _My_HomeState extends State<My_Home> {
               ),
               //Live Market Prices 
               Live_Market(),
+              //Farming tipes Container
             ],
           ),
         ),
@@ -390,8 +391,104 @@ Widget Live_Market()
              ),
              Text('Live',style: TextStyle(color: Colors.black54),)
           ],
-        )
+        ),
+       SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  reverse: true, // Enables right-to-left scrolling direction
+  child: Row(
+    children: [
+      Text('Wheat '),
+      SizedBox(width: 4),
+      Text('₹26/kg', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+      SizedBox(width: 6),
+      Container(
+        width: 50,
+        height: 20,
+        decoration: BoxDecoration(
+          color: Colors.red[100],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(
+          child: Text('-2.1%', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+        ),
+      ),
+      SizedBox(width: 12),
+      Text('Rice '),
+      SizedBox(width: 4),
+      Text('₹35/kg', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+      SizedBox(width: 6),
+      Container(
+        width: 50,
+        height: 20,
+        decoration: BoxDecoration(
+          color: Colors.green[100],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Center(
+          child: Text('+1.8%', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
+        ),
+      ),
+    ],
+  ),
+),
+
       ],
+    ),
+  );
+}
+//Farming tipes Container
+Widget Farming_Tipes()
+{
+  return Container(
+    width: 400, height: 300,
+    decoration: BoxDecoration(
+     color: Colors.white,
+     borderRadius: BorderRadius.circular(8),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        spacing: 8,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+             Text('Today\'s Framing Tips',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+            ],
+          ),
+          Container(
+            width: 350,height: 100,
+            decoration: BoxDecoration(
+              color: Colors.green[100],
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 50,height: 12,
+                      decoration: BoxDecoration(
+                        color: Colors.green[200],
+                        borderRadius: BorderRadius.circular(50)
+                      ),
+                      child: Icon(Icons.eco_outlined,color: Colors.green,size: 30,),
+                    ),
+                    SizedBox(width: 6,),
+                    Text('Optimal Watering Time',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text('Water your crops early morning(5-7 AM) to '),
+                    Text('reduce water loss through evaporation.')
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     ),
   );
 }

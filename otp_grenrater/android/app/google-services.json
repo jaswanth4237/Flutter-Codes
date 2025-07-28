@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1041012808596",
+    "project_id": "otp-genarater",
+    "storage_bucket": "otp-genarater.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041012808596:android:e3098b3f309f39516e0d81",
+        "android_client_info": {
+          "package_name": "com.company.otp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYIKRFEkkbULmF02lhEo2Ymjfzoy7ufSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
