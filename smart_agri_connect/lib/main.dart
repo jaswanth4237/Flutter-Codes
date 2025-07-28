@@ -11,8 +11,6 @@ class Start extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double height= MediaQuery.sizeOf(context).height;
-    // double wid= MediaQuery.sizeOf(context).width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: My_Home(),
