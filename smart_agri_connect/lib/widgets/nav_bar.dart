@@ -48,7 +48,7 @@ class _NavBarState extends State<NavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.wb_sunny_outlined),
-            label: "Weather",
+            label: "Advise",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
