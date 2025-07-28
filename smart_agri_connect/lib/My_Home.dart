@@ -68,7 +68,7 @@ class _My_HomeState extends State<My_Home> {
                     'Direct to buyers',
                   ),
                   Bottom_Container(
-                    'assets/veges.png',
+                    'assets/market.png',
                     'Market Prices',
                     'Live Updates',
                   ),
@@ -83,7 +83,7 @@ class _My_HomeState extends State<My_Home> {
                     '7-days forecast',
                   ),
                   Bottom_Container(
-                    'assets/veges.png',
+                    'assets/farmer.png',
                     'Farming Tips',
                     'Expert advice',
                   ),
@@ -116,11 +116,31 @@ class _My_HomeState extends State<My_Home> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
+                  spacing: 16,
                   children: [
-                    Vegies_detailes('assets/tomatos.jpg','Fresh Tomatoes' , 'Active', '500 kg available', '₹20/Kg', Icons.person_outline, '27 interested')
+                    Vegies_detailes(
+                      'assets/tomatos.jpg',
+                      'Fresh Tomatoes',
+                      'Active',
+                      '500 kg available',
+                      '₹20/Kg',
+                      Icons.person_outline,
+                      '27 interested',
+                    ),
+                    Vegies_detailes(
+                      'assets/wheat.jpg',
+                      'Premium Wheat',
+                      'Active',
+                      '900 kg available',
+                      '₹32/Kg',
+                      Icons.person_outline,
+                      '107 interested',
+                    ),
                   ],
                 ),
-              )
+              ),
+              //Live Market Prices 
+              Live_Market(),
             ],
           ),
         ),
@@ -271,16 +291,104 @@ Widget Vegies_detailes(
   String pIntested,
 ) {
   return Container(
-    width: 320, height: 280,
-     decoration: BoxDecoration(
-     color: Colors.white,
+    width: 320,
+    height: 280,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      color: Colors.white,
+    ),
+    child: Padding(
+      padding: const EdgeInsets.only(left: 12.0, right: 12),
+      child: Column(
+        children: [
+          SizedBox(height: 10),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Image.asset(img, width: 300, height: 170,fit: BoxFit.fill,)),),
+          Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Row(
+              spacing: 68,
+              children: [
+                Text(
+                  vName,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Container(
+                  width: 80,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 194, 243, 195),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Center(
+                    child: Text(state, style: TextStyle(color: Colors.green)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.only(right: 191.0),
+            child: Text(avalible, style: TextStyle(color: Colors.black54)),
+          ),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Text(
+                prize,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(width: 106),
+              Icon(person, color: Colors.black54),
+              Text(pIntested, style: TextStyle(color: Colors.black54)),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+//Live Market Prices Container
+Widget Live_Market()
+{
+  return Container(
+    width: 350,height: 60,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
     ),
     child: Column(
+      spacing: 12,
       children: [
-        Image.asset(img,width: 280,height: 100,),
         Row(
+          spacing: 8,
           children: [
-            
+            SizedBox(width: 10,),
+             Text('Live Market Prices',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),),
+             SizedBox(width: 80,),
+             Container(
+              width: 10,height: 10,
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(50)
+              ),
+             ),
+             Text('Live',style: TextStyle(color: Colors.black54),)
           ],
         )
       ],
