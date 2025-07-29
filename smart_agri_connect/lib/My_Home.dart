@@ -66,11 +66,13 @@ class _My_HomeState extends State<My_Home> {
                     'assets/veges.png',
                     'Sell Crops',
                     'Direct to buyers',
+                    Color.fromARGB(255, 126, 227, 153),
                   ),
                   Bottom_Container(
                     'assets/market.png',
                     'Market Prices',
                     'Live Updates',
+                    const Color.fromARGB(255, 240, 179, 88)
                   ),
                 ],
               ),
@@ -81,11 +83,13 @@ class _My_HomeState extends State<My_Home> {
                     'assets/weather.png',
                     'Weather',
                     '7-days forecast',
+                    const Color.fromARGB(255, 111, 151, 219)
                   ),
                   Bottom_Container(
                     'assets/farmer.png',
                     'Farming Tips',
                     'Expert advice',
+                     Color.fromARGB(255, 237, 232, 166),
                   ),
                 ],
               ),
@@ -163,12 +167,9 @@ Widget Temparature_Container() {
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(30),
       gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color(0xFF5EB3F3), // Light Blue
-          Color.fromARGB(255, 18, 91, 216), // Deeper Blue
-        ],
+        begin: Alignment.topRight,// [#3C8CE7 → #00EAFF]
+        end: Alignment.bottomLeft,
+        colors:  [Color(0xFF3C8CE7), Color(0xFF00EAFF)],// Deeper Blue,
       ),
     ),
     child: Padding(
@@ -227,7 +228,7 @@ Widget Temparature_Container() {
                       ),
                       Text(
                         'Last Updated 2 min',
-                        style: TextStyle(color: Colors.white38),
+                        style: TextStyle(color: Colors.white70),
                       ),
                     ],
                   ),
@@ -255,12 +256,12 @@ Widget Temparature_Container() {
 }
 
 //Bottom bar detailes Container
-Widget Bottom_Container(String img, String txt1, String txt2) {
+Widget Bottom_Container(String img, String txt1, String txt2,Color color) {
   return Container(
     width: 170,
     height: 140,
     decoration: BoxDecoration(
-      color: Colors.white,
+      color:color,
       borderRadius: BorderRadius.circular(20),
     ),
     child: Padding(
@@ -291,7 +292,7 @@ Widget Vegies_detailes(
   String img,
   String vName,
   String state,
-  String avalible,
+  String availble,
   String prize,
   IconData person,
   String pIntested,
@@ -301,24 +302,30 @@ Widget Vegies_detailes(
     height: 280,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
-      color: Colors.white,
+      color: Color(0xFFF9F9F9),
+      border: Border.all(color: Color(0xFF3CB043), width: 2),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.2),
+          spreadRadius: 1,
+          blurRadius: 2,
+          offset: Offset(1, 0),
+        ),
+      ],
     ),
     child: Padding(
-      padding: const EdgeInsets.only(left: 12.0, right: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
         children: [
           SizedBox(height: 10),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.asset(img, width: 300, height: 170,fit: BoxFit.fill,)),),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Image.asset(img, width: 300, height: 170, fit: BoxFit.fill),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 10.0),
             child: Row(
-              spacing: 68,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   vName,
@@ -332,7 +339,7 @@ Widget Vegies_detailes(
                   width: 80,
                   height: 30,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 194, 243, 195),
+                    color: Color.fromARGB(255, 194, 243, 195),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Center(
@@ -342,13 +349,14 @@ Widget Vegies_detailes(
               ],
             ),
           ),
-          SizedBox(height: 4),
-          Padding(
-            padding: const EdgeInsets.only(right: 191.0),
-            child: Text(avalible, style: TextStyle(color: Colors.black54)),
+          SizedBox(height: 2),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(availble, style: TextStyle(color: Colors.black54)),
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 3),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 prize,
@@ -358,15 +366,20 @@ Widget Vegies_detailes(
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(width: 106),
-              Icon(person, color: Colors.black54),
-              Text(pIntested, style: TextStyle(color: Colors.black54)),
+              Row(
+                children: [
+                  Icon(person, color: Colors.black54),
+                  SizedBox(width: 4),
+                  Text(pIntested, style: TextStyle(color: Colors.black54)),
+                ],
+              ),
             ],
           ),
         ],
       ),
     ),
   );
+
 }
 
 //Live Market Prices Container
@@ -661,7 +674,7 @@ Widget RecentTraction(){
           Container(
             width: 350,height: 80,
             decoration: BoxDecoration(
-              color: Color(0xFFF9FAFB),
+              color: Color.fromARGB(255, 218, 245, 204),
               borderRadius: BorderRadius.circular(12)
             ),
             child: Padding(
@@ -713,7 +726,7 @@ Widget RecentTraction(){
            Container(
             width: 350,height: 80,
             decoration: BoxDecoration(
-              color: Color(0xFFF9FAFB),
+              color: Color.fromARGB(255, 153, 196, 232),
               borderRadius: BorderRadius.circular(12)
             ),
             child: Padding(
