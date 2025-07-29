@@ -15,22 +15,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: CircleAvatar(backgroundImage: AssetImage("assets/Logo.jpeg")),
+        backgroundColor: Colors.white,
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: Image.asset('assets/Logo_br.png', width: 100, height: 100),
         ),
-        title: Text(
-          "Smart AgriConnect",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Smart AgriConnect",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Connenting Framers Directly',
+              style: TextStyle(color: Colors.black45, fontSize: 14),
+            ),
+          ],
         ),
-        centerTitle: true,
-        backgroundColor: Colors.green.shade500,
         actions: [
-          Icon(Icons.notifications_none_outlined, color: Colors.white),
-          SizedBox(width: 8),
-          Icon(Icons.person_2_outlined, color: Colors.white),
+          Icon(Icons.notifications_outlined),
+          SizedBox(width: 16),
+          Container(
+            width: 12,
+            height: 12,
+            decoration: BoxDecoration(
+              color: Colors.orange[600],
+              shape: BoxShape.circle,
+            ),
+          ),
+          SizedBox(width: 16),
         ],
-        actionsPadding: EdgeInsets.all(4),
       ),
       body: SingleChildScrollView(
         child: Padding(
