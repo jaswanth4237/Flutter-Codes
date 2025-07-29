@@ -95,384 +95,362 @@ class _SalesUiState extends State<SalesUi> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(231, 61, 230, 64),
-        title: Row(
+        backgroundColor: Colors.white,
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.asset(
+            'assets/Logo_br.png',
+            width: 100,
+            height: 100,
+            fit: BoxFit.fill,
+          ),
+        ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+            Text(
+              "Smart AgriConnect",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
               ),
-              margin: EdgeInsets.only(right: 16),
-              child: Image.asset('assets/logo1.png', fit: BoxFit.contain),
             ),
-
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Smart AgriConnect',
-                  style: TextStyle(
-
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 24,
-                  ),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  'Connecting Farmers Directly',
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
+            Text(
+              'Connenting Framers Directly',
+              style: TextStyle(color: Colors.black45, fontSize: 14),
             ),
           ],
         ),
         actions: [
-          Stack(
-            children: [
-              IconButton(
-                icon: Icon(Icons.notifications_outlined, color: Colors.black87),
-                onPressed: () {},
-              ),
-              Positioned(
-                top: 12,
-                right: 12,
-                child: Container(
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFFF9E14),
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-            ],
+          Icon(Icons.notifications_outlined, size: 28),
+          SizedBox(width: 16),
+          Container(
+            width: 12,
+            height: 12,
+            decoration: BoxDecoration(
+              color: Colors.orange[600],
+              shape: BoxShape.circle,
+            ),
           ),
+          SizedBox(width: 16),
         ],
       ),
 
-      body: Container(
-        color: Color.fromRGBO(188, 209, 200,112),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'List Your Crop',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w600,
-                    color: const Color.fromARGB(255, 0, 0, 0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'List Your Crop',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                    ),
                   ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Select Crop',
-                  style: TextStyle(fontSize: 17, color: Colors.black),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    cropOption('Tomato', 'assets/tomato_sell.png'),
-                    cropOption('Wheat', 'assets/wheat_sell.png'),
-                    cropOption('Paddy', 'assets/paddy_sell.png'),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                const Text(
-                  'Quantity Available',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: TextField(
-                        controller: quantityController,
-                        keyboardType: TextInputType.numberWithOptions(
-                          decimal: true,
-                          signed: false,
+                  SizedBox(height: 10),
+                  Text(
+                    'Select Crop',
+                    style: TextStyle(fontSize: 17, color: Colors.black),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      cropOption('Tomato', 'assets/tomato.png'),
+                      cropOption('Wheat', 'assets/wheat.png'),
+                      cropOption('Paddy', 'assets/paddy.png'),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  const Text(
+                    'Quantity Available',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: TextField(
+                          controller: quantityController,
+                          keyboardType: TextInputType.numberWithOptions(
+                            decimal: true,
+                            signed: false,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Enter quantity',
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2.0),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: Colors.grey,
+                                width: 2.0,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: const Color.fromARGB(255, 48, 155, 51),
+                                width: 2.0,
+                              ),
+                            ),
+                          ),
                         ),
-                        decoration: InputDecoration(
-                          hintText: 'Enter quantity',
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 12),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey, width: 2.0),
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: Colors.grey,width: 2.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: const Color.fromARGB(255, 48, 155, 51),width: 2.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 12),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey,width: 2.0),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            value: quantityUnit,
-                            isExpanded: true,
-                            items:
-                                ['kg', 'tons', 'quintals']
-                                    .map(
-                                      (e) => DropdownMenuItem(
-                                        value: e,
-                                        child: Text(e),
-                                      ),
-                                    )
-                                    .toList(),
-                            onChanged: (value) {
-                              if (value != null) {
-                                setState(() {
-                                  quantityUnit = value;
-                                });
-                              }
-                            },
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              value: quantityUnit,
+                              isExpanded: true,
+                              items:
+                                  ['kg', 'tons', 'quintals']
+                                      .map(
+                                        (e) => DropdownMenuItem(
+                                          value: e,
+                                          child: Text(e),
+                                        ),
+                                      )
+                                      .toList(),
+                              onChanged: (value) {
+                                if (value != null) {
+                                  setState(() {
+                                    quantityUnit = value;
+                                  });
+                                }
+                              },
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                const Text(
-                  'Expected Price (per kg)',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-                TextField(
-                  controller: priceController,
-                  keyboardType: const TextInputType.numberWithOptions(
-                    decimal: true,
+                    ],
                   ),
-                  decoration: const InputDecoration(
-                    hintText: '₹ Enter price per kg',
-                    prefixText: '₹ ',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(12),
-                      ),
-                      borderSide: BorderSide(width: 2.0) 
-                    ),
-                    
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                      borderSide: BorderSide(color: Colors.grey,width: 2.0,),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                      borderSide: BorderSide(color: Colors.green,width: 2.0),
-                    ),
+                  const SizedBox(height: 24),
+                  const Text(
+                    'Expected Price (per kg)',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                   ),
-                ),
-        
-                const SizedBox(height: 24),
-                const Text(
-                  'Quality Parameters',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                ),
-        
-                Row(
-                  children: [
-                    Checkbox(
-                      value: organicCertified,
-                      activeColor: Colors.green,
-                      onChanged:
-                          (value) =>
-                              setState(() => organicCertified = value ?? false),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: priceController,
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
                     ),
-                    const Text('Organic Certified'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Checkbox(
-                      activeColor: Colors.green,
-                      value: pesticideFree,
-                      onChanged:
-                          (value) =>
-                              setState(() => pesticideFree = value ?? false),
-                    ),
-                    const Text('Pesticide Free'),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Checkbox(
-                      activeColor: Colors.green,
-                      value: exportQuality,
-                      onChanged:
-                          (value) =>
-                              setState(() => exportQuality = value ?? false),
-                    ),
-                    const Text('Export Quality'),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Harvest Date',
-                  style: TextStyle(
-                    fontSize: 17.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                GestureDetector(
-                  onTap: _pickDate,
-                  child: AbsorbPointer(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        focusColor: Colors.green,
-                        hintText: 'dd-mm-yyyy',
-                        suffixIcon: Icon(
-                          Icons.calendar_today,
-                          color: Colors.green,
-                        ),
-                        border: OutlineInputBorder(),
-                      ),
-                      controller: TextEditingController(
-                        text:
-                            selectedDate == null
-                                ? ''
-                                : '${selectedDate!.day}-${selectedDate!.month}-${selectedDate!.year}',
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Add Photos',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 120,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.grey.shade400),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
-                          Icons.camera_alt_outlined,
-                          size: 40,
-                          color: Colors.grey,
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Upload crop photos',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Maximum 5 photos',
-                          style: TextStyle(color: Colors.grey, fontSize: 12),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-        
-                const SizedBox(height: 10),
-                const Text(
-                  'Additional Details',
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-                ),
-                const SizedBox(height: 8),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade300),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: TextField(
-                    maxLines: 4,
                     decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Add any additional information about your crop',
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  height: 55,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                      hintText: '₹ Enter price per kg',
+                      prefixText: '₹ ',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        borderSide: BorderSide(width: 2.0),
+                      ),
+
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        borderSide: BorderSide(color: Colors.green, width: 2.0),
                       ),
                     ),
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Crop listed successfully!'),
+                  ),
+
+                  const SizedBox(height: 24),
+                  const Text(
+                    'Quality Parameters',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: organicCertified,
+                        activeColor: Colors.green,
+                        onChanged:
+                            (value) => setState(
+                              () => organicCertified = value ?? false,
+                            ),
+                      ),
+                      const Text('Organic Certified'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        activeColor: Colors.green,
+                        value: pesticideFree,
+                        onChanged:
+                            (value) =>
+                                setState(() => pesticideFree = value ?? false),
+                      ),
+                      const Text('Pesticide Free'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        activeColor: Colors.green,
+                        value: exportQuality,
+                        onChanged:
+                            (value) =>
+                                setState(() => exportQuality = value ?? false),
+                      ),
+                      const Text('Export Quality'),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Harvest Date',
+                    style: TextStyle(
+                      fontSize: 17.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  GestureDetector(
+                    onTap: _pickDate,
+                    child: AbsorbPointer(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          focusColor: Colors.green,
+                          hintText: 'dd-mm-yyyy',
+                          suffixIcon: Icon(
+                            Icons.calendar_today,
+                            color: Colors.green,
+                          ),
+                          border: OutlineInputBorder(),
                         ),
-                      );
-                    },
-                    child: const Text(
-                      'List for sale',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        controller: TextEditingController(
+                          text:
+                              selectedDate == null
+                                  ? ''
+                                  : '${selectedDate!.day}-${selectedDate!.month}-${selectedDate!.year}',
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Add Photos',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                  const SizedBox(height: 8),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 120,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.grey.shade400),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.camera_alt_outlined,
+                            size: 40,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Upload crop photos',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            'Maximum 5 photos',
+                            style: TextStyle(color: Colors.grey, fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Additional Details',
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey.shade300),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: TextField(
+                      maxLines: 4,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        hintText:
+                            'Add any additional information about your crop',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 55,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Crop listed successfully!'),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'List for sale',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: 2,
-      //   selectedItemColor: Colors.green,
-      //   unselectedItemColor: Colors.grey,
-      //   items: [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.shopping_bag),
-      //       label: 'Market',
-      //     ),
-      //     BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Sell'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Advisory'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-      //   ],
-      // ),
     );
   }
 }
