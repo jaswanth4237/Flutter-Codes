@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/widgets/nav_bar.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
@@ -95,8 +96,7 @@ class _OtpPageState extends State<OtpPage> {
                         
                            if (_key.currentState!.validate()) {
 
-                               //navigation to next page
-
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));
                            
                           debugPrint("Submit button clicked");
                            }

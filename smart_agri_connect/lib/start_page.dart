@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_agri_connect/login_page.dart';
+import 'package:smart_agri_connect/registration.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -60,7 +61,7 @@ class SplashPage extends StatelessWidget {
 
                     OutlinedButton(
                       onPressed: () {
-                       // Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationPage()));
                       },
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.green,

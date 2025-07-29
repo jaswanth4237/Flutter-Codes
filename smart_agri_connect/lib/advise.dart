@@ -105,7 +105,7 @@ class _AdvisePageState extends State<AdvisePage> {
                         icn: Icons.wb_sunny_outlined,
                         c1: Color(0xFF3071ef),
                         c2: Colors.white,
-                        t1: "Weather\n    Alert",
+                        t1: "Weather\n   Alert",
                         t2:
                             "Light rain expected in next 48 hours. Plan harvesting accordingly.",
                       ),
@@ -113,14 +113,14 @@ class _AdvisePageState extends State<AdvisePage> {
                         icn: Icons.eco,
                         c1: Color(0xFF1cb855),
                         c2: Colors.white,
-                        t1: "Crop\n   Health",
+                        t1: "   Crop\n  Health",
                         t2:
                             "Ideal conditions for wheat growth. Monitor moisture levels.",
                       ),
                     ],
                   ),
                   ContainerRect(
-                    C: Color(0xFFfff6ed),
+                    C: Color.fromARGB(255, 250, 219, 188),
                     c1: Color(0xFFffecd0),
                     c2: Color(0xFFb8734c),
                     icn: Icons.calendar_month,
@@ -155,7 +155,7 @@ class _AdvisePageState extends State<AdvisePage> {
                     ),
                   ),
                   ContainerRect(
-                    C: Color(0xFFeff6ff),
+                    C: Color.fromARGB(255, 188, 215, 251),
                     c1: Color(0xFFdaeaf7),
                     c2: Color(0xFF5870b0),
                     icn: Icons.water_drop_outlined,
@@ -185,7 +185,7 @@ class _AdvisePageState extends State<AdvisePage> {
                     ),
                   ),
                   ContainerRect(
-                    C: Color(0xFFfef2f2),
+                    C: Color.fromARGB(255, 248, 203, 203),
                     c1: Color(0xFFfce2e3),
                     c2: Color(0xFFa84035),
                     icn: Icons.bug_report_outlined,
@@ -201,7 +201,7 @@ class _AdvisePageState extends State<AdvisePage> {
                     ),
                   ),
                   ContainerRect(
-                    C: Color(0xFFfbf5ff),
+                    C: Color.fromARGB(255, 228, 199, 248),
                     c1: Color(0xFFf3e6ff),
                     c2: Color(0xFF874bbc),
                     icn: Icons.videocam_outlined,
@@ -230,13 +230,13 @@ class _AdvisePageState extends State<AdvisePage> {
                     children: [
                       ContainerLst(
                         icn: Icons.camera_alt_outlined,
-                        C: Color(0xFFe5f8e5),
+                        C: Color.fromARGB(255, 209, 249, 209),
                         c: Colors.green,
                         txt: "Scan Crop",
                       ),
                       ContainerLst(
                         icn: Icons.headset_mic_outlined,
-                        C: Color(0xFFe5f8e5),
+                        C: Color.fromARGB(255, 209, 249, 209),
                         c: Colors.green,
                         txt: "Get Support",
                       ),
