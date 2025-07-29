@@ -92,7 +92,7 @@ class BuyerOtpPage extends StatelessWidget {
                            if (key.currentState!.validate()) {
 
                                //navigation to next page
-                               Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationPage()));
+                              //  Navigator.push(context, MaterialPageRoute(builder: (context)=>));
 
                            
                           debugPrint("Submit button clicked");
