@@ -7,6 +7,7 @@ class GroceriesLst extends StatelessWidget {
   final String txt3;
   final String txt4;
   final Color c;
+  final Color c1;
   const GroceriesLst({
     super.key,
     required this.img,
@@ -15,6 +16,7 @@ class GroceriesLst extends StatelessWidget {
     required this.txt3,
     required this.txt4,
     required this.c,
+    required this.c1,
   });
 
   @override
@@ -23,7 +25,8 @@ class GroceriesLst extends StatelessWidget {
       width: double.infinity,
       height: 80,
       decoration: BoxDecoration(
-        color: Color(0xFFf9fafc),
+        // color: Color(0xFFf9fafc),
+        color: c1,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(

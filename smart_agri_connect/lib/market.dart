@@ -103,7 +103,8 @@ class _MarketPageState extends State<MarketPage> {
                         width: 150,
                         height: 150,
                         decoration: BoxDecoration(
-                          color: Color(0xFFf9fafc),
+                          // color: Color(0xFFf9fafc),
+                          color: Color.fromARGB(255, 203, 216, 252),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Padding(
@@ -159,7 +160,8 @@ class _MarketPageState extends State<MarketPage> {
                         width: 150,
                         height: 150,
                         decoration: BoxDecoration(
-                          color: Color(0xFFf9fafc),
+                          // color: Color(0xFFf9fafc),
+                          color: Color.fromARGB(255, 198, 242, 244),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Padding(
@@ -204,7 +206,7 @@ class _MarketPageState extends State<MarketPage> {
                     txt2: 'High Demand',
                     txt3: '₹42/kg',
                     txt4: '↑ 5.2%',
-                    c: Colors.green,
+                    c: Colors.green, c1: Color.fromARGB(255, 245, 204, 204),
                   ),
                   GroceriesLst(
                     img: AssetImage("assets/wheat.jpeg"),
@@ -212,7 +214,7 @@ class _MarketPageState extends State<MarketPage> {
                     txt2: 'Stable Market',
                     txt3: '₹26/kg',
                     txt4: '↓ 2.1%',
-                    c: Colors.orange,
+                    c: Colors.orange, c1: Color.fromARGB(255, 244, 224, 185),
                   ),
                   GroceriesLst(
                     img: AssetImage("assets/rice.jpeg"),
@@ -220,7 +222,7 @@ class _MarketPageState extends State<MarketPage> {
                     txt2: 'Moderate demand',
                     txt3: '₹35/kg',
                     txt4: '↑ 1.8%',
-                    c: Colors.green,
+                    c: Colors.green, c1: Color.fromARGB(255, 248, 243, 198),
                   ),
                   SizedBox(height: 4),
                   Row(
@@ -245,7 +247,7 @@ class _MarketPageState extends State<MarketPage> {
                     ],
                   ),
                   MarketInsts(
-                    c1: Color(0xFFeff6ff),
+                    c1: Color.fromARGB(255, 126, 179, 248),
                     c2: Color(0xFFdeeaff),
                     c3: Color(0xFF436b8e),
                     icn: Icons.info_outline_rounded,
@@ -254,8 +256,8 @@ class _MarketPageState extends State<MarketPage> {
                         "Tomato prices expected to rise further\ndue to increased urban demand",
                   ),
                   MarketInsts(
-                    c1: Color(0xFFf0fdf4),
-                    c2: Color(0xFFd8fdeb),
+                    c1: Color.fromARGB(255, 173, 250, 196),
+                    c2: Color(0xFFdeeaff),
                     c3: Color(0xFF57987a),
                     icn: Icons.timer_outlined,
                     t1: "Best Selling Time",
