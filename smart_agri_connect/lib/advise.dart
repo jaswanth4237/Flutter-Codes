@@ -105,7 +105,7 @@ class _AdvisePageState extends State<AdvisePage> {
                         icn: Icons.wb_sunny_outlined,
                         c1: Color(0xFF3071ef),
                         c2: Colors.white,
-                        t1: "Weather\n    Alert",
+                        t1: "Weather\n   Alert",
                         t2:
                             "Light rain expected in next 48 hours. Plan harvesting accordingly.",
                       ),
@@ -113,7 +113,7 @@ class _AdvisePageState extends State<AdvisePage> {
                         icn: Icons.eco,
                         c1: Color(0xFF1cb855),
                         c2: Colors.white,
-                        t1: "Crop\n   Health",
+                        t1: "   Crop\n  Health",
                         t2:
                             "Ideal conditions for wheat growth. Monitor moisture levels.",
                       ),
