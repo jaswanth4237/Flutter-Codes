@@ -40,7 +40,7 @@ class _My_HomeState extends State<My_Home> {
           SizedBox(width: 16),
           Container(
             width: 12,
-            height: 12,
+            height: 12, 
             decoration: BoxDecoration(
               color: Colors.orange[600],
               shape: BoxShape.circle,
