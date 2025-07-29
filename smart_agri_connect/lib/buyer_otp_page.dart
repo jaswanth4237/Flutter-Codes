@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_agri_connect/registration.dart';
 
 class BuyerOtpPage extends StatelessWidget {
   const BuyerOtpPage({super.key});
