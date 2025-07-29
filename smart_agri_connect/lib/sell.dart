@@ -58,7 +58,7 @@ class _SalesUiState extends State<SalesUi> {
               ),
             ),
 
-            padding: EdgeInsets.all(4), // spacing between border and avatar
+            padding: EdgeInsets.all(4), 
             child: CircleAvatar(
               radius: 30,
               backgroundImage: AssetImage(asset),
@@ -95,7 +95,7 @@ class _SalesUiState extends State<SalesUi> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(231, 61, 230, 64),
+        // backgroundColor: const Color.fromARGB(231, 61, 230, 64),
         title: Row(
           children: [
             Container(
@@ -158,7 +158,7 @@ class _SalesUiState extends State<SalesUi> {
       ),
 
       body: Container(
-        color: Color.fromRGBO(188, 209, 200,112),
+        // color: Color.fromRGBO(188, 209, 200,112),
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
