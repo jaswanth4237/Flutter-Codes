@@ -21,11 +21,10 @@ class SettingsTile extends StatelessWidget {
       ),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor:
-              isLogout ? Colors.red.shade100 : Colors.grey.shade300,
+             backgroundColor: Colors.white,
           child: Icon(
             icon,
-            color: isLogout ? Colors.red : Colors.black87,
+            color: isLogout ? Colors.red : Colors.green,
           ),
         ),
         title: Text(
