@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/registration.dart';
 
 class BuyerOtpPage extends StatelessWidget {
   const BuyerOtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-     final _otpctr=TextEditingController();
-      final _key = GlobalKey<FormState>();
+     final otpctr=TextEditingController();
+      final key = GlobalKey<FormState>();
      return Scaffold(
       appBar: AppBar(backgroundColor:Color(0xFFF8F8F8)),
       body: Stack(
@@ -20,7 +21,7 @@ class BuyerOtpPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(
-                    key: _key,
+                    key: key,
               child: Container(
                height: 250,
                 width: 350,
@@ -53,7 +54,7 @@ class BuyerOtpPage extends StatelessWidget {
                       Text("Login",style: TextStyle(color: Colors.green,fontSize: 24,fontWeight: FontWeight.bold),),
                       SizedBox(height: 20,),
                       TextFormField(
-                         controller: _otpctr,
+                         controller: otpctr,
                          validator: (val)
                          {
                           if(val!.isEmpty)
@@ -88,9 +89,10 @@ class BuyerOtpPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                         
-                           if (_key.currentState!.validate()) {
+                           if (key.currentState!.validate()) {
 
                                //navigation to next page
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationPage()));
 
                            
                           debugPrint("Submit button clicked");
