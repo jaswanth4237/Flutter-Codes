@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_agri_connect/widgets/nav_bar.dart';
-
+import 'package:smart_agri_connect/My_Home.dart';
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
 
@@ -96,7 +95,7 @@ class _OtpPageState extends State<OtpPage> {
                         
                            if (_key.currentState!.validate()) {
 
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Home()));
                            
                           debugPrint("Submit button clicked");
                            }
