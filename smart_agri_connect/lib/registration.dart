@@ -45,7 +45,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.all(8),
-          child: CircleAvatar(child: Image.asset('assets/Logo.jpeg')),
+          child: CircleAvatar(child: Image.asset('assets/Logo_br.png')),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

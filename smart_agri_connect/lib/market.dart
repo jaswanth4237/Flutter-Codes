@@ -19,7 +19,7 @@ class _MarketPageState extends State<MarketPage> {
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.asset(
-            'assets/logo1.png',
+            'assets/Logo_br.png',
             width: 100,
             height: 100,
             fit: BoxFit.fill,
