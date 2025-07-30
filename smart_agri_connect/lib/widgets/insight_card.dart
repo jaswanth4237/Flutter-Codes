@@ -5,8 +5,10 @@ class InsightCard extends StatelessWidget {
   final Color iconColor;
   final String title;
   final String description;
+  final Color color;
   const InsightCard({
     super.key,
+    required this.color,
     required this.icon,
     required this.iconColor,
     required this.title,
@@ -18,7 +20,7 @@ class InsightCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: color,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
