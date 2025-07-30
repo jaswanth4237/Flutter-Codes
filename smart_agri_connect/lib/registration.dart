@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/login_page.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -249,7 +250,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          // Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.green,
           padding: const EdgeInsets.symmetric(vertical: 16),
