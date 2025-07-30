@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_agri_connect/login_page.dart';
+// import 'package:smart_agri_connect/login_page.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
