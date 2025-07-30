@@ -161,7 +161,7 @@ class _AdvisePageState extends State<AdvisePage> {
                     icn: Icons.water_drop_outlined,
                     t1: 'Irrigation Schedule',
                     t2:
-                        'Maintain 2-3 cm water level for\nbetter crop growth. Next irrigation\ndue in 3 days.',
+                        'Maintain moist soil for healthy \nwheat growth.\nNext irrigation due in 6 days.',
                     wdgt: Row(
                       spacing: 8,
                       children: [

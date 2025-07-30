@@ -711,7 +711,7 @@ Widget RecentTraction(){
                     padding: const EdgeInsets.all(4.0),
                     child: Column(
                       children: [
-                        Text('₹9,000',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text('₹4,000',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
                           child: Text('UPI Paid',style: TextStyle(color: Colors.black54),),
@@ -763,7 +763,7 @@ Widget RecentTraction(){
                     padding: const EdgeInsets.all(4.0),
                     child: Column(
                       children: [
-                        Text('₹14,000',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text('₹16,000',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
                           child: Text('Pending',style: TextStyle(color: Colors.black54),),

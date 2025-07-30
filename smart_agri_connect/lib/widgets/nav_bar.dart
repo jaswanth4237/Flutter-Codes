@@ -44,7 +44,7 @@ class _NavBarState extends State<NavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.local_florist),
-            label: "My Crops",
+            label: "Sell Crops",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.wb_sunny_outlined),

@@ -11,7 +11,7 @@ class _SalesUiState extends State<SalesUi> {
   String selectedCrop = '';
 
   final quantityController = TextEditingController();
-  String quantityUnit = 'kg';
+  String quantityUnit = 'Kg';
 
   final priceController = TextEditingController();
 
@@ -168,9 +168,9 @@ class _SalesUiState extends State<SalesUi> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      cropOption('Tomato', 'assets/tomato.png'),
-                      cropOption('Wheat', 'assets/wheat.png'),
-                      cropOption('Paddy', 'assets/paddy.png'),
+                      cropOption('Tomato', 'assets/tomato_sell.png'),
+                      cropOption('Wheat', 'assets/wheat_sell.png'),
+                      cropOption('Paddy', 'assets/paddy_sell.png'),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -226,7 +226,7 @@ class _SalesUiState extends State<SalesUi> {
                               value: quantityUnit,
                               isExpanded: true,
                               items:
-                                  ['kg', 'tons', 'quintals']
+                                  ['Kg', 'Tons', 'Quintals']
                                       .map(
                                         (e) => DropdownMenuItem(
                                           value: e,
@@ -259,7 +259,7 @@ class _SalesUiState extends State<SalesUi> {
                       decimal: true,
                     ),
                     decoration: const InputDecoration(
-                      hintText: '₹ Enter price per kg',
+                      hintText: 'Enter price per kg',
                       prefixText: '₹ ',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
