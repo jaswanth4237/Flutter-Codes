@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Jaswanth",
+                            "Ramana",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -257,8 +257,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     c: Colors.orange, c1: Color.fromARGB(255, 244, 224, 185),
                                       ),
                                       GroceriesLst(
-                    img: AssetImage("assets/Rice.png"),
-                    txt1: 'Rice',
+                    img: AssetImage("assets/paddy_sell.png"),
+                    txt1: 'Paddy',
                     txt2: 'Moderate demand',
                     txt3: '₹35/kg',
                     txt4: '↑ 1.8%',
