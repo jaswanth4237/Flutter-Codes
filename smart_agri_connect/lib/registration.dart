@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
@@ -8,7 +9,10 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  final _formKey = GlobalKey<FormState>();
   bool isFarmer = true;
+  String selectedValue = 'English';
+  String businessType = 'Wholesaler';
 
   final nameController = TextEditingController();
   final mobileController = TextEditingController();
@@ -17,22 +21,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final districtController = TextEditingController();
   final stateController = TextEditingController();
   final landAreaController = TextEditingController();
-
   final businessNameController = TextEditingController();
   final businessAddressController = TextEditingController();
   final gstinController = TextEditingController();
 
-  String languagePreference = 'English';
-  String landUnit = 'Acres';
-  String businessType = 'Wholesaler';
-
-  final Map<String, bool> farmerCrops = {
-    'Wheat': false,
-    'Rice': false,
-    'Cotton': false,
-  };
-
-  final Map<String, bool> buyerCrops = {
+  final Map<String, bool> crops = {
     'Wheat': false,
     'Rice': false,
     'Cotton': false,
@@ -41,23 +34,30 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F9F9),
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
         leading: Padding(
-          padding: const EdgeInsets.all(8),
-          child: CircleAvatar(child: Image.asset('assets/Logo.jpeg')),
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(child: Image.asset('assets/logo_br.png')),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("Smart AgriConnect",
-                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green)),
-            Text("Connecting Farmers Directly",
-                style: TextStyle(fontSize: 14, color: Colors.black54)),
+            Text(
+              "Smart AgriConnect",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.green,
+              ),
+            ),
+            Text(
+              "Connecting Farmers Directly",
+              style: TextStyle(fontSize: 14, color: Colors.black54),
+            ),
           ],
         ),
-        backgroundColor: Colors.white,
-        elevation: 1,
         actions: const [
           Icon(Icons.notifications_outlined, color: Colors.black87),
           SizedBox(width: 16),
@@ -68,37 +68,51 @@ class _RegistrationPageState extends State<RegistrationPage> {
           SizedBox(width: 10),
         ],
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(16),
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text("Registration",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 16),
-              ToggleButtons(
-                borderRadius: BorderRadius.circular(20),
-                fillColor: Colors.green,
-                selectedColor: Colors.white,
-                color: Colors.black,
-                constraints: const BoxConstraints(minHeight: 40, minWidth: 150),
-                isSelected: [isFarmer, !isFarmer],
-                onPressed: (index) {
-                  setState(() {
-                    isFarmer = index == 0;
-                  });
-                },
-                children: const [Text("Farmer"), Text("Buyer")],
+          child: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Center(
+                    child: Text(
+                      "Registration",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ToggleButtons(
+                    borderRadius: BorderRadius.circular(20),
+                    fillColor: Colors.green,
+                    selectedColor: Colors.white,
+                    color: Colors.black,
+                    constraints: const BoxConstraints(
+                      minHeight: 40,
+                      minWidth: 150,
+                    ),
+                    isSelected: [isFarmer, !isFarmer],
+                    onPressed: (index) {
+                      setState(() => isFarmer = index == 0);
+                    },
+                    children: const [Text("Farmer"), Text("Buyer")],
+                  ),
+                  const SizedBox(height: 16),
+                  if (isFarmer) buildFarmerForm() else buildBuyerForm(),
+                ],
               ),
-              const SizedBox(height: 20),
-              isFarmer ? buildFarmerForm() : buildBuyerForm(),
-            ],
+            ),
           ),
         ),
       ),
@@ -109,48 +123,35 @@ class _RegistrationPageState extends State<RegistrationPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        labelField("Full Name"),
-        buildTextField(nameController, "Enter your full name"),
-        labelField("Mobile Number"),
-        buildMobileField(mobileController),
-        labelField("Aadhar Card (Optional)"),
-        buildTextField(aadharController, "Enter Aadhar number"),
-        labelField("Address"),
-        buildTextField(villageController, "Village"),
-        const SizedBox(height: 8),
-        buildTextField(districtController, "District"),
-        const SizedBox(height: 8),
-        buildTextField(stateController, "State"),
-        labelField("Crops Grown"),
-        buildCropChips(farmerCrops),
-        labelField("Land Area (Optional)"),
-        Row(
-          children: [
-            Expanded(child: buildTextField(landAreaController, "Enter land area")),
-            const SizedBox(width: 10),
-            Expanded(
-              child: DropdownButtonFormField<String>(
-                value: landUnit,
-                decoration: buildInputDecoration("Unit"),
-                items: ["Acres", "Hectares"]
-                    .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                    .toList(),
-                onChanged: (val) => setState(() => landUnit = val!),
-              ),
-            ),
-          ],
+        buildLabeledField("Full Name", nameController),
+        buildLabeledField("Mobile Number", mobileController, isPhone: true,),
+        buildLabeledField(
+          "Aadhar Card (Optional)",
+          aadharController,
+          isOptional: true,
         ),
+        buildLabeledField("Village", villageController),
+        buildLabeledField("District", districtController),
+        buildLabeledField("State", stateController),
         const SizedBox(height: 10),
-        labelField("Language Preference"),
-        DropdownButtonFormField<String>(
-          value: languagePreference,
-          decoration: buildInputDecoration("Select Language"),
-          items: ["English", "Telugu", "Hindi", "Tamil", "Malayalam"]
-              .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-              .toList(),
-          onChanged: (val) => setState(() => languagePreference = val!),
+        const Text(
+          "Crops Grown",
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 16),
+        buildCropChips(),
+        const SizedBox(height: 12),
+        buildLabeledField(
+          "Land Area (Optional)",
+          landAreaController,
+          isOptional: true,
+        ),
+        const SizedBox(height: 12),
+        const Text(
+          "Language Preference",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        buildLanguageDropdown(),
+        const SizedBox(height: 20),
         buildRegisterButton("Register as Farmer"),
       ],
     );
@@ -160,43 +161,98 @@ class _RegistrationPageState extends State<RegistrationPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        labelField("Business Name"),
-        buildTextField(businessNameController, "Enter business name"),
-        labelField("Mobile Number"),
-        buildMobileField(mobileController),
-        labelField("Business Type"),
+        buildLabeledField("Business Name", businessNameController),
+        buildLabeledField("Mobile Number", mobileController, isPhone: true),
+        const Text(
+          "Business Type",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 6),
         DropdownButtonFormField<String>(
           value: businessType,
           decoration: buildInputDecoration("Business Type"),
-          items: ["Wholesaler", "Retailer", "Distributor"]
-              .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-              .toList(),
+          items:
+              ["Wholesaler", "Retailer", "Distributor"]
+                  .map(
+                    (type) => DropdownMenuItem(value: type, child: Text(type)),
+                  )
+                  .toList(),
           onChanged: (val) => setState(() => businessType = val!),
         ),
-        labelField("Business Address"),
-        buildTextField(businessAddressController, "Enter complete business address"),
-        labelField("Preferred Crops"),
-        buildCropChips(buyerCrops),
-        labelField("GSTIN (Optional)"),
-        buildTextField(gstinController, "Enter GSTIN number"),
-        const SizedBox(height: 16),
+        const SizedBox(height: 12),
+        buildLabeledField("Business Address", businessAddressController),
+        const SizedBox(height: 10),
+        const Text(
+          "Preferred Crops",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        buildCropChips(),
+        const SizedBox(height: 12),
+        buildLabeledField(
+          "GSTIN (Optional)",
+          gstinController,
+          isOptional: true,
+        ),
+        const SizedBox(height: 12),
+        const Text(
+          "Language Preference",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        buildLanguageDropdown(),
+        const SizedBox(height: 20),
         buildRegisterButton("Register as Buyer"),
       ],
     );
   }
 
-  Widget labelField(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12, bottom: 6),
-      child: Text(text,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+  Widget buildLanguageDropdown() {
+    return DropdownButtonFormField<String>(
+      value: selectedValue,
+      decoration: buildInputDecoration("Select Language"),
+      items:
+          ['English', 'Telugu', 'Hindi', 'Malayalam', 'Tamil'].map((value) {
+            return DropdownMenuItem<String>(value: value, child: Text(value));
+          }).toList(),
+      onChanged: (String? value) {
+        setState(() => selectedValue = value!);
+      },
     );
   }
 
-  Widget buildTextField(TextEditingController controller, String hint) {
-    return TextFormField(
-      controller: controller,
-      decoration: buildInputDecoration(hint),
+  Widget buildLabeledField(
+    String label,
+    TextEditingController controller, {
+    bool isPhone = true,
+    bool isOptional = false,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 6),
+          TextFormField(
+            controller: controller,
+            keyboardType: isPhone ? TextInputType.number : TextInputType.text,
+            inputFormatters:
+                isPhone ? [FilteringTextInputFormatter.digitsOnly] : null,
+            maxLength: isPhone ? 10 : null,
+            decoration: buildInputDecoration(
+              "Enter $label",
+            ).copyWith(counterText: ""),
+            validator: (val) {
+              if (isOptional) return null;
+              return val == null || val.trim().isEmpty
+                  ? 'This field is required'
+                  : null;
+            },
+          ),
+        ],
+      ),
     );
   }
 
@@ -211,53 +267,41 @@ class _RegistrationPageState extends State<RegistrationPage> {
     );
   }
 
-  Widget buildMobileField(TextEditingController controller) {
-    return Row(
-      children: [
-        Expanded(child: buildTextField(controller, "Enter mobile number")),
-        const SizedBox(width: 8),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-          child: const Text("Get OTP"),
-        ),
-      ],
-    );
-  }
-
-  Widget buildCropChips(Map<String, bool> cropsMap) {
+  Widget buildCropChips() {
     return Wrap(
-      spacing: 8,
-      children: cropsMap.keys.map((crop) {
-        return FilterChip(
-          label: Text(crop),
-          selected: cropsMap[crop]!,
-          selectedColor: Colors.green[300],
-          checkmarkColor: Colors.white,
-          onSelected: (val) => setState(() => cropsMap[crop] = val),
-        );
-      }).toList(),
+      spacing: 10,
+      children:
+          crops.keys.map((crop) {
+            return FilterChip(
+              label: Text(crop),
+              selected: crops[crop]!,
+              selectedColor: Colors.green,
+              onSelected: (val) => setState(() => crops[crop] = val),
+            );
+          }).toList(),
     );
   }
 
   Widget buildRegisterButton(String text) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+    return GestureDetector(
+      onTap: () {
+        if (_formKey.currentState!.validate()) {
+          // handle submit
+        }
+      },
+      child: Container(
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.green,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
         ),
-        child: Text(text, style: const TextStyle(fontSize: 16)),
       ),
     );
   }

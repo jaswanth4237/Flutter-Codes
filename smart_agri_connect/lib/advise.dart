@@ -20,7 +20,7 @@ class _AdvisePageState extends State<AdvisePage> {
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.asset(
-            'assets/logo1.png',
+            'assets/Logo_br.png',
             width: 100,
             height: 100,
             fit: BoxFit.fill,

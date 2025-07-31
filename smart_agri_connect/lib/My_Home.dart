@@ -316,7 +316,7 @@ Widget Vegies_detailes(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
       color: Color(0xFFF9F9F9),
-      border: Border.all(color: Color(0xFF3CB043), width: 2),
+      border: Border.all(color: Colors.black, width: 2),
       boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.2),

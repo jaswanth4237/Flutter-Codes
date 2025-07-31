@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 // import 'package:shoping_cart_models/Models/Model.dart';
 import 'package:smart_agri_connect/Models/Model.dart';
+// void main()
+// {
+//   runApp(Viewall());
+// }
 
 class Viewall extends StatelessWidget {
   const Viewall({super.key});
