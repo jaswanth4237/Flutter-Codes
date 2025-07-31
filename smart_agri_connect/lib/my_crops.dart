@@ -18,7 +18,7 @@ class _MyCropsState extends State<MyCrops> {
         backgroundColor: Colors.white,
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(50),
-          child: Image.asset('assets/images/logo.jpg', width: 100, height: 100),
+          child: Image.asset('assets/Logo_br.png', width: 100, height: 100),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

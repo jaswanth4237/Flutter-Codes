@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _numController = TextEditingController();
   bool isFarmer = true;
-  var random=Random();
+  var random = Random();
 
   @override
   void dispose() {
@@ -25,184 +25,209 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: const Color(0xFFF8F8F8)),
+      // appBar: AppBar(backgroundColor: const Color(0xFFF8F8F8)),
       body: Stack(
         children: [
-          Container(
-            color: const Color(0xFFF8F8F8),
+          Expanded(
+            child: Positioned.fill(
+              child: Image.asset('assets/farm_.jpg', fit: BoxFit.cover),
+            ),
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Container(
-                height: 300,
-                width: 350,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
-                   boxShadow: [
-                    BoxShadow(
-                      color: Colors.green,
-                      //spreadRadius: 2,
-                      blurRadius: 100,
-                      blurStyle: BlurStyle.solid,
-                      offset: Offset(6, 6,),
-                    ),
-                  ],
-                  
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Login",
-                          style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      SizedBox(height: 16),
 
-                        
-                        Container(
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Row(
-                            children: [
-                              
-                              Expanded(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      isFarmer = true;
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: isFarmer ? Colors.green : Colors.transparent,
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'Farmer',
-                                      style: TextStyle(
-                                        color: isFarmer ? Colors.white : Colors.black54,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              // Buyer
-                              Expanded(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      isFarmer = false;
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: !isFarmer ? Colors.green : Colors.transparent,
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'Buyer',
-                                      style: TextStyle(
-                                        color: !isFarmer ? Colors.white : Colors.black54,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+          // Container(color: const Color(0xFFF8F8F8)),
 
-                        const SizedBox(height: 20),
-
-                      
-                        TextFormField(
-                          controller: _numController,
-                          keyboardType: TextInputType.phone,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return "Please enter your mobile number";
-                            } else if (val.length != 10 || !RegExp(r'^[0-9]+$').hasMatch(val)) {
-                              return "Please enter a valid 10-digit mobile number";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            labelText: "Mobile Number",
-                            hintText: "Enter your mobile number",
-                            prefixIcon: const Icon(Icons.phone),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
+          Padding(
+            padding: const EdgeInsets.only(top:250.0),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  height: 300,
+                  width: 350,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.green,
+                        //spreadRadius: 2,
+                        blurRadius: 100,
+                        blurStyle: BlurStyle.solid,
+                        offset: Offset(6, 6),
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
-
-                        const SizedBox(height: 20),
-
-                        // Send OTP Button
-                        GestureDetector(
-                          onTap: () {
-                            if (_formKey.currentState!.validate()) {
-                              print('hiiiiiiiiiiiiii');
-                              if (isFarmer) {
-                                int randomInt = random.nextInt(10000); // Range: 0 to 9999
-                                String formatted = randomInt.toString().padLeft(4, '0');
-                                debugPrint("OTP::$formatted");
-
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => OtpPage(otp: formatted)),
-                                );
-                              } else {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => BuyerOtpPage()),
-                                );
-                              }
-                            }
-                          },
-                          child: Container(
-                            width: double.infinity,
+                          SizedBox(height: 16),
+            
+                          Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.blue),
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.green,
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                            child: const Center(
-                              child: Text(
-                                "Send OTP",
-                                style: TextStyle(color: Colors.white),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isFarmer = true;
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color:
+                                            isFarmer
+                                                ? Colors.green
+                                                : Colors.transparent,
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Farmer',
+                                        style: TextStyle(
+                                          color:
+                                              isFarmer
+                                                  ? Colors.white
+                                                  : Colors.black54,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                // Buyer
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isFarmer = false;
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color:
+                                            !isFarmer
+                                                ? Colors.green
+                                                : Colors.transparent,
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Buyer',
+                                        style: TextStyle(
+                                          color:
+                                              !isFarmer
+                                                  ? Colors.white
+                                                  : Colors.black54,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+            
+                          const SizedBox(height: 20),
+            
+                          TextFormField(
+                            controller: _numController,
+                            keyboardType: TextInputType.phone,
+                            validator: (val) {
+                              if (val == null || val.isEmpty) {
+                                return "Please enter your mobile number";
+                              } else if (val.length != 10 ||
+                                  !RegExp(r'^[0-9]+$').hasMatch(val)) {
+                                return "Please enter a valid 10-digit mobile number";
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              labelText: "Mobile Number",
+                              hintText: "Enter your mobile number",
+                              prefixIcon: const Icon(Icons.phone),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+            
+                          const SizedBox(height: 20),
+            
+                          // Send OTP Button
+                          GestureDetector(
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                // print('hiiiiiiiiiiiiii');
+                                if (isFarmer) {
+                                  int randomInt = random.nextInt(
+                                    10000,
+                                  ); // Range: 0 to 9999
+                                  String formatted = randomInt.toString().padLeft(
+                                    4,
+                                    '0',
+                                  );
+                                  debugPrint("Your OTP::$formatted\n valid for 5 min");
+            
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder:
+                                          (context) => OtpPage(otp: formatted),
+                                    ),
+                                  );
+                                } else {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => BuyerOtpPage(),
+                                    ),
+                                  );
+                                }
+                              }
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.blue),
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.green,
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  "Send OTP",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
   }
 }
-
-
