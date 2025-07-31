@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/advise.dart';
+import 'package:smart_agri_connect/market.dart';
+import 'package:smart_agri_connect/sell.dart';
 import 'package:smart_agri_connect/widgets/viewall.dart';
 
 class My_Home extends StatefulWidget {
@@ -68,17 +71,28 @@ class _My_HomeState extends State<My_Home> {
               Row(
                 spacing: 24,
                 children: [
-                  Bottom_Container(
-                    'assets/veges.png',
-                    'Sell Crops',
-                    'Direct to buyers',
-                    Color.fromARGB(255, 152, 234, 174),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> SalesUi()));
+                  },
+                    child: Bottom_Container(
+                      'assets/veges.png',
+                      'Sell Crops',
+                      'Direct to buyers',
+                      Color.fromARGB(255, 152, 234, 174),
+                    ),
                   ),
-                  Bottom_Container(
-                    'assets/market.png',
-                    'Market Prices',
-                    'Live Updates',
-                    const Color.fromARGB(255, 239, 189, 114),
+                  GestureDetector(
+                    onTap: ()
+                    {
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=> MarketPage()));
+                    },
+                    child: Bottom_Container(
+                      'assets/market.png',
+                      'Market Prices',
+                      'Live Updates',
+                      const Color.fromARGB(255, 239, 189, 114),
+                    ),
                   ),
                 ],
               ),
@@ -91,11 +105,16 @@ class _My_HomeState extends State<My_Home> {
                     '7-days forecast',
                     const Color.fromARGB(255, 155, 179, 221),
                   ),
-                  Bottom_Container(
-                    'assets/farmer.png',
-                    'Farming Tips',
-                    'Expert advice',
-                    Color.fromARGB(255, 241, 237, 173),
+                  GestureDetector(
+                    onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=> AdvisePage()));
+                    },
+                    child: Bottom_Container(
+                      'assets/farmer.png',
+                      'Farming Tips',
+                      'Expert advice',
+                      Color.fromARGB(255, 241, 237, 173),
+                    ),
                   ),
                 ],
               ),
