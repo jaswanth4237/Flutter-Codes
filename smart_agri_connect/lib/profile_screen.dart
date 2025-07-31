@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/market.dart';
+import 'package:smart_agri_connect/my_crops.dart';
 import 'package:smart_agri_connect/widgets/Groceries_lst.dart';
 import 'package:smart_agri_connect/widgets/insight_card.dart';
 import 'package:smart_agri_connect/widgets/settings_tile.dart';
@@ -333,7 +335,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
     ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () {
+           Navigator.push(
+          context,
+           MaterialPageRoute(
+              builder: (context) =>MarketPage()
+           ),
+       );
+      },
       icon: const Icon(Icons.storefront),
       label: const Text("Market"),
       style: ElevatedButton.styleFrom(
@@ -347,7 +356,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     ),
     const SizedBox(width: 16),
     ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () {
+       Navigator.push(
+          context,
+           MaterialPageRoute(
+              builder: (context) =>MyCrops(),
+           ),
+       );
+      },
       icon: const Icon(Icons.local_florist_rounded),
       label: const Text("My Crops"),
       style: ElevatedButton.styleFrom(
