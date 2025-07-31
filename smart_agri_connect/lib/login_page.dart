@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_agri_connect/buyer_otp_page.dart';
 import 'package:smart_agri_connect/otp_page.dart';
+import 'dart:math';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _numController = TextEditingController();
   bool isFarmer = true;
+  var random=Random();
 
   @override
   void dispose() {
@@ -156,10 +158,15 @@ class _LoginPageState extends State<LoginPage> {
                         GestureDetector(
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
+                              print('hiiiiiiiiiiiiii');
                               if (isFarmer) {
+                                int randomInt = random.nextInt(10000); // Range: 0 to 9999
+                                String formatted = randomInt.toString().padLeft(4, '0');
+                                debugPrint("OTP::$formatted");
+
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => OtpPage()),
+                                  MaterialPageRoute(builder: (context) => OtpPage(otp: formatted)),
                                 );
                               } else {
                                 Navigator.push(
