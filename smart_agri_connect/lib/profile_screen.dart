@@ -78,12 +78,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           size: 30,
                         ),
                       ),
-                      
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Ramana",
+                            "Ramana kumar",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -96,6 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
+                      SizedBox(width: 60,),
                       CircleAvatar(
                         backgroundColor: Colors.lightBlue.shade100,
                         radius: 13,
