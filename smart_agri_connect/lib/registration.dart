@@ -99,15 +99,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
               children: [
                 const Text("Registration", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 16),
-                ToggleButtons(
-                  borderRadius: BorderRadius.circular(20),
-                  fillColor: Colors.green,
-                  selectedColor: Colors.white,
-                  color: Colors.black,
-                  constraints: const BoxConstraints(minHeight: 40, minWidth: 150),
-                  isSelected: [isFarmer, !isFarmer],
-                  onPressed: (index) => setState(() => isFarmer = index == 0),
-                  children: const [Text("Farmer"), Text("Buyer")],
+                Align(
+                  alignment: Alignment.center,
+                  child: ToggleButtons(
+                    borderRadius: BorderRadius.circular(20),
+                    fillColor: Colors.green,
+                    selectedColor: Colors.white,
+                    color: Colors.black,
+                    constraints: const BoxConstraints(minHeight: 40, minWidth: 150),
+                    isSelected: [isFarmer, !isFarmer],
+                    onPressed: (index) => setState(() => isFarmer = index == 0),
+                    children: const [Text("Farmer"), Text("Buyer")],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 isFarmer ? buildFarmerForm() : buildBuyerForm(),
