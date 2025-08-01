@@ -9,6 +9,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){}, child: Text("Ai"),),
       body: Stack(
         children: [
           
