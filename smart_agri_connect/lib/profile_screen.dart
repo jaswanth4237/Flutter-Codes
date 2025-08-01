@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_agri_connect/market.dart';
 import 'package:smart_agri_connect/my_crops.dart';
-// import 'package:smart_agri_connect/widgets/Groceries_lst.dart';
 import 'package:smart_agri_connect/widgets/insight_card.dart';
 import 'package:smart_agri_connect/widgets/settings_tile.dart';
 
@@ -115,7 +114,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           size: 18,
                         ),
                       ),
-                      CircleAvatar(radius: 4, backgroundColor: Colors.orange),
+                      // CircleAvatar(radius: 4, backgroundColor: Colors.orange),
                     ],
                   ),
                   Row(
