@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Text(
-                            "Connecting Farmers Directly",
+                            "6302767681",
                             style: TextStyle(fontSize: 13),
                             overflow: TextOverflow.ellipsis,
                           ),
