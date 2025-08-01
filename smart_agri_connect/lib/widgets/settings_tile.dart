@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/login_page.dart';
 
 class SettingsTile extends StatelessWidget {
    final IconData icon;
@@ -36,7 +37,7 @@ class SettingsTile extends StatelessWidget {
         ),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
         onTap: () {
-          
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
         },
       ),
     );
