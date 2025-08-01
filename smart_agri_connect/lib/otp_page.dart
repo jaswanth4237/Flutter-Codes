@@ -19,10 +19,8 @@ class _OtpPageState extends State<OtpPage> {
       
       body: Stack(
         children: [
-          Expanded(
-            child: Positioned.fill(
-              child: Image.asset('assets/farm_.jpg', fit: BoxFit.cover),
-            ),
+          Positioned.fill(
+            child: Image.asset('assets/farm_.jpg', fit: BoxFit.cover),
           ),
           Padding(
             padding: const EdgeInsets.only(top:250.0),

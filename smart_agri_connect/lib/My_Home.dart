@@ -16,6 +16,9 @@ class _My_HomeState extends State<My_Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green[700],
+        onPressed: (){}, child: Text("Ai"),),
       backgroundColor: Color.fromARGB(255, 239, 241, 246),
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -65,6 +68,7 @@ class _My_HomeState extends State<My_Home> {
           child: Column(
             spacing: 12,
             children: [
+              // floatingActionButton: FloatingActionButton(onPressed: (){}, child: Text("Ai"),),
               //Temparature Container Calling.
               Center(child: Temparature_Container()),
               //Bottom detailes Container calling
