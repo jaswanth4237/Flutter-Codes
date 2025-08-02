@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smart_agri_connect/available_crps.dart';
 import 'package:smart_agri_connect/buyer_home.dart';
 import 'package:smart_agri_connect/my_basket.dart';
-import 'package:smart_agri_connect/profile_screen.dart';
 
 
 class NavBarBuyer extends StatefulWidget {
@@ -19,7 +18,7 @@ class _NavBarBuyerState extends State<NavBarBuyer> {
     Buyer_home(),
     MyBasket(),
     AvailableCrps(),
-    ProfileScreen(),
+    
   ];
 
   @override
