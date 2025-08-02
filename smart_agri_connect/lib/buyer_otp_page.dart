@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_agri_connect/buyer_home.dart';
+import 'package:smart_agri_connect/buyer_nav_bar.dart';
 
 class BuyerOtpPage extends StatelessWidget {
   const BuyerOtpPage({super.key});
@@ -89,7 +89,7 @@ class BuyerOtpPage extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             if (key.currentState!.validate()) {
-                               Navigator.push(context, MaterialPageRoute(builder: (context)=>Buyer_home()));
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBarBuyer()));
 
                               debugPrint("Submit button clicked");
                             }

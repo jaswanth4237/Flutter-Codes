@@ -5,14 +5,14 @@ import 'package:smart_agri_connect/my_basket.dart';
 import 'package:smart_agri_connect/profile_screen.dart';
 
 
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+class NavBarBuyer extends StatefulWidget {
+  const NavBarBuyer({super.key});
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<NavBarBuyer> createState() => _NavBarBuyerState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NavBarBuyerState extends State<NavBarBuyer> {
   int currentIndex = 0;
 
   final List<Widget> screens = [
