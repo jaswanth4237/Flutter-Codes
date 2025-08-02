@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:smart_agri_connect/start_page.dart';
 import 'package:flutter/services.dart';
 
-
-
 void main()
 async{
    WidgetsFlutterBinding.ensureInitialized();

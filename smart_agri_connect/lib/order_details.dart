@@ -48,7 +48,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
                         ),
                       ),
                       Image.network(widget.order['image'] ?? '',
-                          width: 80, height: 80, fit: BoxFit.cover),
+                          width: 50, height: 80, fit: BoxFit.cover),
                     ],
                   ),
                   const Divider(height: 32),

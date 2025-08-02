@@ -147,7 +147,7 @@ class _MyBasketState extends State<MyBasket> {
                         
                         margin: const EdgeInsets.only(bottom: 12),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 227, 177, 194),
+                          color: Color.fromARGB(255, 133, 234, 137),
                           border: Border.all(width: 0.5, color: Colors.green),
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -161,11 +161,14 @@ class _MyBasketState extends State<MyBasket> {
                               ),
                             );
                           },
-                          leading: Image.network(
-                            order['image']!,
-                            width: 65,
-                            height: 75,
-                            fit: BoxFit.cover,
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.asset(
+                              order['image']!,
+                              width: 80,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                           title: Text(
                             order['title']!,
