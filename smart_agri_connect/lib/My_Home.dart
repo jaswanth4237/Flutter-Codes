@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:smart_agri_connect/advise.dart';
+import 'package:smart_agri_connect/market.dart';
+import 'package:smart_agri_connect/sell.dart';
+import 'package:smart_agri_connect/widgets/viewall.dart';
 
 class My_Home extends StatefulWidget {
   // final double wid,height;
@@ -12,6 +16,9 @@ class _My_HomeState extends State<My_Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green[700],
+        onPressed: (){}, child: Text("Ai"),),
       backgroundColor: Color.fromARGB(255, 239, 241, 246),
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -52,27 +59,44 @@ class _My_HomeState extends State<My_Home> {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.only(top: 12.0, left: 12, right: 12,bottom: 18),
+          padding: const EdgeInsets.only(
+            top: 12.0,
+            left: 12,
+            right: 12,
+            bottom: 18,
+          ),
           child: Column(
             spacing: 12,
             children: [
+              // floatingActionButton: FloatingActionButton(onPressed: (){}, child: Text("Ai"),),
               //Temparature Container Calling.
               Center(child: Temparature_Container()),
               //Bottom detailes Container calling
               Row(
                 spacing: 24,
                 children: [
-                  Bottom_Container(
-                    'assets/veges.png',
-                    'Sell Crops',
-                    'Direct to buyers',
-                    Color.fromARGB(255, 126, 227, 153),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> SalesUi()));
+                  },
+                    child: Bottom_Container(
+                      'assets/veges.png',
+                      'Sell Crops',
+                      'Direct to buyers',
+                      Color.fromARGB(255, 152, 234, 174),
+                    ),
                   ),
-                  Bottom_Container(
-                    'assets/market.png',
-                    'Market Prices',
-                    'Live Updates',
-                    const Color.fromARGB(255, 240, 179, 88)
+                  GestureDetector(
+                    onTap: ()
+                    {
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=> MarketPage()));
+                    },
+                    child: Bottom_Container(
+                      'assets/market.png',
+                      'Market Prices',
+                      'Live Updates',
+                      const Color.fromARGB(255, 239, 189, 114),
+                    ),
                   ),
                 ],
               ),
@@ -83,13 +107,18 @@ class _My_HomeState extends State<My_Home> {
                     'assets/weather.png',
                     'Weather',
                     '7-days forecast',
-                    const Color.fromARGB(255, 111, 151, 219)
+                    const Color.fromARGB(255, 155, 179, 221),
                   ),
-                  Bottom_Container(
-                    'assets/farmer.png',
-                    'Farming Tips',
-                    'Expert advice',
-                     Color.fromARGB(255, 237, 232, 166),
+                  GestureDetector(
+                    onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=> AdvisePage()));
+                    },
+                    child: Bottom_Container(
+                      'assets/farmer.png',
+                      'Farming Tips',
+                      'Expert advice',
+                      Color.fromARGB(255, 241, 237, 173),
+                    ),
                   ),
                 ],
               ),
@@ -106,7 +135,13 @@ class _My_HomeState extends State<My_Home> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
+                   GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> Viewall()));
+                  print('MarketTicker tapped!');
+                  // You can also navigate, call a method, update state, etc.
+                },
+                child:Text(
                     'View All',
                     style: TextStyle(
                       color: Colors.green[600],
@@ -114,6 +149,7 @@ class _My_HomeState extends State<My_Home> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                   ),
                 ],
               ),
               //Viges Detailes.
@@ -143,14 +179,14 @@ class _My_HomeState extends State<My_Home> {
                   ],
                 ),
               ),
-              //Live Market Prices 
+              //Live Market Prices
               MarketTicker(),
               //Farming tipes Container
-               Farming_Tipes(),
+              Farming_Tipes(),
               //Income Boost Container
               Income_Boost(),
               //Recent Transactions Container
-              RecentTraction(),
+              // RecentTraction(),
             ],
           ),
         ),
@@ -167,9 +203,9 @@ Widget Temparature_Container() {
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(30),
       gradient: LinearGradient(
-        begin: Alignment.topRight,// [#3C8CE7 → #00EAFF]
+        begin: Alignment.topRight, // [#3C8CE7 → #00EAFF]
         end: Alignment.bottomLeft,
-        colors:  [Color(0xFF3C8CE7), Color(0xFF00EAFF)],// Deeper Blue,
+        colors: [Color(0xFF3C8CE7), Color(0xFF00EAFF)], // Deeper Blue,
       ),
     ),
     child: Padding(
@@ -256,12 +292,12 @@ Widget Temparature_Container() {
 }
 
 //Bottom bar detailes Container
-Widget Bottom_Container(String img, String txt1, String txt2,Color color) {
+Widget Bottom_Container(String img, String txt1, String txt2, Color color) {
   return Container(
     width: 170,
     height: 140,
     decoration: BoxDecoration(
-      color:color,
+      color: color,
       borderRadius: BorderRadius.circular(20),
     ),
     child: Padding(
@@ -303,7 +339,7 @@ Widget Vegies_detailes(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
       color: Color(0xFFF9F9F9),
-      border: Border.all(color: Color(0xFF3CB043), width: 2),
+      border: Border.all(color: Colors.black, width: 2),
       boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.2),
@@ -379,11 +415,9 @@ Widget Vegies_detailes(
       ),
     ),
   );
-
 }
 
 //Live Market Prices Container
-
 
 class MarketTicker extends StatefulWidget {
   const MarketTicker({super.key});
@@ -392,7 +426,8 @@ class MarketTicker extends StatefulWidget {
   _MarketTickerState createState() => _MarketTickerState();
 }
 
-class _MarketTickerState extends State<MarketTicker> with SingleTickerProviderStateMixin {
+class _MarketTickerState extends State<MarketTicker>
+    with SingleTickerProviderStateMixin {
   late ScrollController _scrollController;
   late AnimationController _animationController;
 
@@ -405,8 +440,10 @@ class _MarketTickerState extends State<MarketTicker> with SingleTickerProviderSt
       vsync: this,
       duration: Duration(seconds: 15),
     )..addListener(() {
-        _scrollController.jumpTo(_animationController.value * _scrollController.position.maxScrollExtent);
-      });
+      _scrollController.jumpTo(
+        _animationController.value * _scrollController.position.maxScrollExtent,
+      );
+    });
 
     _animationController.repeat(); // infinite loop
   }
@@ -421,67 +458,77 @@ class _MarketTickerState extends State<MarketTicker> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Container(
-          width: 400,
-          height: 90,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 12.0),
-                child: Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Text(
-                      'Live Market Prices',
-                      style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    Spacer(),
-                    Container(
-                      width: 10,
-                      height: 10,
-                      decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
-                    ),
-                    SizedBox(width: 4),
-                    Text('Live', style: TextStyle(color: Colors.black54)),
-                    SizedBox(width: 10),
-                  ],
-                ),
-              ),
-              SizedBox(height: 18),
-              ClipRect(
-                child: SizedBox(
-                  height: 20,
-                  child: ListView(
-                    controller: _scrollController,
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      _item('Wheat', '₹26/kg', '-2.1%', Colors.red),
-                      SizedBox(width: 16),
-                      _item('Rice', '₹35/kg', '+1.8%', Colors.green),
-                      SizedBox(width: 16),
-                      _item('Corn', '₹30/kg', '+0.6%', Colors.green),
-                      SizedBox(width: 16),
-                      _item('Barley', '₹22/kg', '-1.2%', Colors.red),
-                      SizedBox(width: 16),
-                      _item('Soybean', '₹40/kg', '+2.4%', Colors.green),
-                      SizedBox(width: 16),
-                    ],
+      width: 400,
+      height: 90,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 12.0),
+            child: Row(
+              children: [
+                SizedBox(width: 10),
+                Text(
+                  'Live Market Prices',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-            ],
+                Spacer(),
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                SizedBox(width: 4),
+                Text('Live', style: TextStyle(color: Colors.black54)),
+                SizedBox(width: 10),
+              ],
+            ),
           ),
-        );
+          SizedBox(height: 18),
+          ClipRect(
+            child: SizedBox(
+              height: 20,
+              child: ListView(
+                controller: _scrollController,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  _item('Wheat', '₹26/kg', '-2.1%', Colors.red),
+                  SizedBox(width: 16),
+                  _item('Rice', '₹35/kg', '+1.8%', Colors.green),
+                  SizedBox(width: 16),
+                  _item('Corn', '₹30/kg', '+0.6%', Colors.green),
+                  SizedBox(width: 16),
+                  _item('Barley', '₹22/kg', '-1.2%', Colors.red),
+                  SizedBox(width: 16),
+                  _item('Soybean', '₹40/kg', '+2.4%', Colors.green),
+                  SizedBox(width: 16),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _item(String name, String price, String change, Color changeColor) {
     return Row(
       children: [
         Text('$name ', style: TextStyle(color: Colors.black)),
-        Text(price, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+        Text(
+          price,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
         SizedBox(width: 6),
         Container(
           width: 50,
@@ -501,14 +548,15 @@ class _MarketTickerState extends State<MarketTicker> with SingleTickerProviderSt
     );
   }
 }
+
 // Farming tipes Container
-Widget Farming_Tipes()
-{
+Widget Farming_Tipes() {
   return Container(
-    width: 400, height: 270,
+    width: 400,
+    height: 270,
     decoration: BoxDecoration(
-     color: Colors.white,
-     borderRadius: BorderRadius.circular(12),
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(12),
     ),
     child: Padding(
       padding: const EdgeInsets.all(12.0),
@@ -518,11 +566,19 @@ Widget Farming_Tipes()
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-             Text('Today\'s Framing Tips',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),)
+              Text(
+                'Today\'s Framing Tips',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
             ],
           ),
           Container(
-            width: 350,height: 100,
+            width: 350,
+            height: 100,
             decoration: BoxDecoration(
               color: Colors.green[50],
               borderRadius: BorderRadius.circular(12),
@@ -530,19 +586,31 @@ Widget Farming_Tipes()
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 12.0,left: 12),
+                  padding: const EdgeInsets.only(top: 12.0, left: 12),
                   child: Row(
                     children: [
                       Container(
-                        width: 40,height: 40,
-                      decoration: BoxDecoration(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
                           color: Colors.green[200],
-                          borderRadius: BorderRadius.circular(50)
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Icon(Icons.eco_outlined,color: Colors.green,size: 30,),
+                        child: Icon(
+                          Icons.eco_outlined,
+                          color: Colors.green,
+                          size: 30,
+                        ),
                       ),
-                      SizedBox(width: 6,),
-                      Text('Optimal Watering Time',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),)
+                      SizedBox(width: 6),
+                      Text(
+                        'Optimal Watering Time',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -555,15 +623,16 @@ Widget Farming_Tipes()
                       Padding(
                         padding: const EdgeInsets.only(right: 26.0),
                         child: Text('reduce water loss through evaporation.'),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
           Container(
-            width: 350,height: 100,
+            width: 350,
+            height: 100,
             decoration: BoxDecoration(
               color: Colors.blue[50],
               borderRadius: BorderRadius.circular(12),
@@ -571,19 +640,31 @@ Widget Farming_Tipes()
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 12.0,left: 12),
+                  padding: const EdgeInsets.only(top: 12.0, left: 12),
                   child: Row(
                     children: [
                       Container(
-                        width: 40,height: 40,
-                      decoration: BoxDecoration(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
                           color: Colors.blue[100],
-                          borderRadius: BorderRadius.circular(50)
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Icon(Icons.bug_report_outlined,color: Colors.blue,size: 30,),
+                        child: Icon(
+                          Icons.bug_report_outlined,
+                          color: Colors.blue,
+                          size: 30,
+                        ),
                       ),
-                      SizedBox(width: 6,),
-                      Text('Pest Control Alert',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),)
+                      SizedBox(width: 6),
+                      Text(
+                        'Pest Control Alert',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -596,86 +677,117 @@ Widget Farming_Tipes()
                       Padding(
                         padding: const EdgeInsets.only(left: 27.0),
                         child: Text('Use neem oil spray as natural pesticide.'),
-                      )
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     ),
   );
 }
+
 //Income Boost container
-Widget Income_Boost()
-{
+Widget Income_Boost() {
   return Container(
-    width: 400,height: 120,
+    width: 400,
+    height: 120,
     decoration: BoxDecoration(
-      gradient: LinearGradient(colors: [const Color.fromARGB(255, 16, 113, 21),const Color.fromARGB(255, 38, 197, 46)]),
-      borderRadius: BorderRadius.circular(18)
+      gradient: LinearGradient(
+        colors: [
+          const Color.fromARGB(255, 16, 113, 21),
+          const Color.fromARGB(255, 38, 197, 46),
+        ],
+      ),
+      borderRadius: BorderRadius.circular(18),
     ),
     child: Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 8.0,left: 12),
+          padding: const EdgeInsets.only(top: 8.0, left: 12),
           child: Row(
             children: [
-              Text('Income Boost',style: TextStyle(color: Colors.white,fontSize: 20),),
-               SizedBox(width: 170,),
-          Padding(
-            padding: const EdgeInsets.only(top: 24.0),
-            child: Text('35%',style: TextStyle(color:Colors.white,fontSize:24,fontWeight: FontWeight.bold),),
-          ),
-             
+              Text(
+                'Income Boost',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              SizedBox(width: 170),
+              Padding(
+                padding: const EdgeInsets.only(top: 24.0),
+                child: Text(
+                  '35%',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 3.0,left: 12),
+          padding: const EdgeInsets.only(right: 3.0, left: 12),
           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
-           mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Text('Average farmers earn 35% more',style: TextStyle(color: Colors.white),),
-                  SizedBox(width: 60,),
-                  Text('More Income',style: TextStyle(color: Colors.white),)
+                  Text(
+                    'Average farmers earn 35% more',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  SizedBox(width: 60),
+                  Text('More Income', style: TextStyle(color: Colors.white)),
                 ],
               ),
-              Text('Direct selling eliminates middlemen',style: TextStyle(color:Colors.white54),),
+              Text(
+                'Direct selling eliminates middlemen',
+                style: TextStyle(color: Colors.white54),
+              ),
             ],
           ),
-        )
+        ),
       ],
     ),
   );
 }
+
 //Recent Transactions Container
-Widget RecentTraction(){
-    return Container(
-     width: 400,height: 238,
-     decoration: BoxDecoration(
+Widget RecentTraction() {
+  return Container(
+    width: 400,
+    height: 238,
+    decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(12),
-     ),
-     child: Padding(
-       padding: const EdgeInsets.all(12.0),
-       child: Column(
+    ),
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
         spacing: 12,
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 170),
-            child: Text('Recent Transactions',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+            child: Text(
+              'Recent Transactions',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
           ),
           Container(
-            width: 350,height: 80,
+            width: 350,
+            height: 80,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 218, 245, 204),
-              borderRadius: BorderRadius.circular(12)
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -684,50 +796,78 @@ Widget RecentTraction(){
                   Column(
                     children: [
                       Container(
-                        width: 50,height: 50,
+                        width: 50,
+                        height: 50,
                         decoration: BoxDecoration(
                           color: Colors.green[100],
-                          borderRadius: BorderRadius.circular(50)
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Center(child: Icon(Icons.check,color: Colors.green,size: 30,)),
-                      )
+                        child: Center(
+                          child: Icon(
+                            Icons.check,
+                            color: Colors.green,
+                            size: 30,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(width: 4,),
+                  SizedBox(width: 4),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
                       children: [
-                        Text('Tomatoes - 200 Kg',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text(
+                          'Tomatoes - 200 Kg',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(right: 15.0),
-                          child: Text('Sold to Durga Traders',style: TextStyle(color: Colors.black54),),
-                        )
+                          child: Text(
+                            'Sold to Durga Traders',
+                            style: TextStyle(color: Colors.black54),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(width: 28,),
+                  SizedBox(width: 28),
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Column(
                       children: [
-                        Text('₹9,000',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text(
+                          '₹4,000',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
-                          child: Text('UPI Paid',style: TextStyle(color: Colors.black54),),
-                        )
+                          child: Text(
+                            'UPI Paid',
+                            style: TextStyle(color: Colors.black54),
+                          ),
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
           ),
-           Container(
-            width: 350,height: 80,
+          Container(
+            width: 350,
+            height: 80,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 153, 196, 232),
-              borderRadius: BorderRadius.circular(12)
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
@@ -736,47 +876,74 @@ Widget RecentTraction(){
                   Column(
                     children: [
                       Container(
-                        width: 50,height: 50,
+                        width: 50,
+                        height: 50,
                         decoration: BoxDecoration(
-                          color:Colors.blue[100],
-                          borderRadius: BorderRadius.circular(50)
+                          color: Colors.blue[100],
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Center(child: Icon(Icons.local_shipping_outlined,color: Colors.blue,size: 30,)),
-                      )
+                        child: Center(
+                          child: Icon(
+                            Icons.local_shipping_outlined,
+                            color: Colors.blue,
+                            size: 30,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(width: 4,),
+                  SizedBox(width: 4),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
                       children: [
-                        Text('Wheat - 500 Kg',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text(
+                          'Wheat - 500 Kg',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(right: 0.0),
-                          child: Text('In transit to Mumbai',style: TextStyle(color: Colors.black54),),
-                        )
+                          child: Text(
+                            'In transit to Mumbai',
+                            style: TextStyle(color: Colors.black54),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(width:48,),
+                  SizedBox(width: 48),
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Column(
                       children: [
-                        Text('₹14,000',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text(
+                          '₹16,000',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4.0),
-                          child: Text('Pending',style: TextStyle(color: Colors.black54),),
-                        )
+                          child: Text(
+                            'Pending',
+                            style: TextStyle(color: Colors.black54),
+                          ),
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
-       ),
-     ),
-    );
+      ),
+    ),
+  );
 }

@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:smart_agri_connect/My_Home.dart';
-import 'package:smart_agri_connect/advise.dart';
-import 'package:smart_agri_connect/market.dart';
-import 'package:smart_agri_connect/profile_screen.dart';
-import 'package:smart_agri_connect/sell.dart';
+import 'package:smart_agri_connect/available_crps.dart';
+import 'package:smart_agri_connect/buyer_home.dart';
+import 'package:smart_agri_connect/my_basket.dart';
 
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+
+class NavBarBuyer extends StatefulWidget {
+  const NavBarBuyer({super.key});
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<NavBarBuyer> createState() => _NavBarBuyerState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NavBarBuyerState extends State<NavBarBuyer> {
   int currentIndex = 0;
 
   final List<Widget> screens = [
-    My_Home(),
-    MarketPage(),
-    SalesUi(),
-    AdvisePage(),
-    ProfileScreen(),
+    Buyer_home(),
+    MyBasket(),
+    AvailableCrps(),
+    
   ];
 
   @override
@@ -39,16 +37,12 @@ class _NavBarState extends State<NavBar> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.storefront),
-            label: "Market",
+            icon: Icon(Icons.inventory_2_outlined),
+            label: "My Basket",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_florist),
-            label: "Sell Crops",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.wb_sunny_outlined),
-            label: "Advise",
+            icon: Icon(Icons.eco_outlined),
+            label: "Available Products",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),

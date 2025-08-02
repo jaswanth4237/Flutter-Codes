@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_agri_connect/widgets/Groceries_lst.dart';
+import 'package:smart_agri_connect/market.dart';
+import 'package:smart_agri_connect/my_crops.dart';
 import 'package:smart_agri_connect/widgets/insight_card.dart';
 import 'package:smart_agri_connect/widgets/settings_tile.dart';
 
@@ -77,24 +78,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           size: 30,
                         ),
                       ),
-                      
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Jaswanth",
+                            "Ramana kumar",
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            "Connecting Farmers Directly",
+                            "6302767681",
                             style: TextStyle(fontSize: 13),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),
+                      SizedBox(width: 60,),
                       CircleAvatar(
                         backgroundColor: Colors.lightBlue.shade100,
                         radius: 13,
@@ -113,7 +114,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           size: 18,
                         ),
                       ),
-                      CircleAvatar(radius: 4, backgroundColor: Colors.orange),
+                      // CircleAvatar(radius: 4, backgroundColor: Colors.orange),
                     ],
                   ),
                   Row(
@@ -220,54 +221,54 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   SizedBox(height: 16),
                   
-                  Container(
-                    height: 312,
-                    width: 345,
-                     padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              blurRadius: 8,
-                              offset: const Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                    child: Column(
-                      spacing: 10,
-                      children: [
-                        Text("Market Prices",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                        GroceriesLst(
-                          img: AssetImage("assets/tomato.jpeg"),
-                          txt1: 'Tomatoes',
-                          txt2: 'High Demand',
-                          txt3: '₹42/kg',
-                          txt4: '↑ 5.2%',
-                          c: Colors.green, c1: Color.fromARGB(255, 245, 204, 204),
-                        ),
+                  // Container(
+                  //   height: 312,
+                  //   width: 345,
+                  //    padding: const EdgeInsets.all(4),
+                  //       decoration: BoxDecoration(
+                  //         color: Colors.white,
+                  //         borderRadius: BorderRadius.circular(16),
+                  //         boxShadow: [
+                  //           BoxShadow(
+                  //             color: Colors.black.withOpacity(0.1),
+                  //             blurRadius: 8,
+                  //             offset: const Offset(0, 4),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //   child: Column(
+                  //     spacing: 10,
+                  //     children: [
+                  //       Text("Market Prices",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  //       GroceriesLst(
+                  //         img: AssetImage("assets/tomato.jpeg"),
+                  //         txt1: 'Tomatoes',
+                  //         txt2: 'High Demand',
+                  //         txt3: '₹42/kg',
+                  //         txt4: '↑ 5.2%',
+                  //         c: Colors.green, c1: Color.fromARGB(255, 245, 204, 204),
+                  //       ),
                       
-                      GroceriesLst(
-                    img: AssetImage("assets/wheat.jpg"),
-                    txt1: 'Wheat',
-                    txt2: 'Stable Market',
-                    txt3: '₹26/kg',
-                    txt4: '↓ 2.1%',
-                    c: Colors.orange, c1: Color.fromARGB(255, 244, 224, 185),
-                                      ),
-                                      GroceriesLst(
-                    img: AssetImage("assets/Rice.png"),
-                    txt1: 'Rice',
-                    txt2: 'Moderate demand',
-                    txt3: '₹35/kg',
-                    txt4: '↑ 1.8%',
-                    c: Colors.green, c1: Color.fromARGB(255, 248, 243, 198),
-                                      ),
-                                      ],
-                                      ),
-                  ),
-                  SizedBox(height: 28),
+                  //     GroceriesLst(
+                  //   img: AssetImage("assets/wheat.jpg"),
+                  //   txt1: 'Wheat',
+                  //   txt2: 'Stable Market',
+                  //   txt3: '₹26/kg',
+                  //   txt4: '↓ 2.1%',
+                  //   c: Colors.orange, c1: Color.fromARGB(255, 244, 224, 185),
+                  //                     ),
+                  //                     GroceriesLst(
+                  //   img: AssetImage("assets/paddy_sell.png"),
+                  //   txt1: 'Paddy',
+                  //   txt2: 'Moderate demand',
+                  //   txt3: '₹35/kg',
+                  //   txt4: '↑ 1.8%',
+                  //   c: Colors.green, c1: Color.fromARGB(255, 248, 243, 198),
+                  //                     ),
+                  //                     ],
+                  //                     ),
+                  // ),
+                  // SizedBox(height: 28),
                   Container(
                     padding: const EdgeInsets.all(16),
                     width: double.infinity,
@@ -333,7 +334,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
     ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () {
+           Navigator.push(
+          context,
+           MaterialPageRoute(
+              builder: (context) =>MarketPage()
+           ),
+       );
+      },
       icon: const Icon(Icons.storefront),
       label: const Text("Market"),
       style: ElevatedButton.styleFrom(
@@ -347,7 +355,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     ),
     const SizedBox(width: 16),
     ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () {
+       Navigator.push(
+          context,
+           MaterialPageRoute(
+              builder: (context) =>MyCrops(),
+           ),
+       );
+      },
       icon: const Icon(Icons.local_florist_rounded),
       label: const Text("My Crops"),
       style: ElevatedButton.styleFrom(
