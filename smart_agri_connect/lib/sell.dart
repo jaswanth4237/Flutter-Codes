@@ -168,9 +168,9 @@ class _SalesUiState extends State<SalesUi> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      cropOption('Tomato', 'assets/tomato.png'),
-                      cropOption('Wheat', 'assets/wheat.png'),
-                      cropOption('Paddy', 'assets/paddy.png'),
+                      cropOption('Tomato', 'assets/tomato_sell.png'),
+                      cropOption('Wheat', 'assets/wheat_sell.png'),
+                      cropOption('Paddy', 'assets/paddy_sell.png'),
                     ],
                   ),
                   const SizedBox(height: 24),
