@@ -51,7 +51,7 @@ class CropsCntr extends StatelessWidget {
                 Text(
                   txt1,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: c3,
                   ),
