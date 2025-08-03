@@ -145,7 +145,7 @@ class _BuyerState extends State<Buyer_home> {
                       spacing: 12,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Season_container('assets/brinjal.jpg','₹15 Rps','Organic','Brinjal'),
+                        Season_container('assets/brinjal.jpeg','₹15 Rps','Organic','Brinjal'),
                         Season_container('assets/correct.jpg','₹41 Rps','Organic','Carrot'),
                         Season_container('assets/patato.jpg','₹20 Rps','Organic','Potato'),
                       ],
@@ -163,7 +163,7 @@ class _BuyerState extends State<Buyer_home> {
                       spacing: 12,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Season_container('assets/brinjal.jpg','₹15 Rps','Organic','Brinjal'),
+                        Season_container('assets/brinjal.jpeg','₹15 Rps','Organic','Brinjal'),
                         Season_container('assets/correct.jpg','₹41 Rps','Organic','Carrot'),
                         Season_container('assets/patato.jpg','₹20 Rps','Organic','Potato'),
                       ],
